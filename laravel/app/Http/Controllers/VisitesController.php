@@ -9,7 +9,8 @@ use DateTime;
 
 class VisitesController extends Controller
 {
-    public function showCreat(){
+    public function showCreat()
+    {
         $pro_santes = DB::table('professionnel_de_sante')->get();
 
         // Récupération des médicaments avec les noms de leurs catégories associées
@@ -27,8 +28,9 @@ class VisitesController extends Controller
         ]);
     }
 
-    public function createVisite(){
-        $date_maintenat = (new DateTime())->format('Y-m-d H:i:s');
+    public function createVisite()
+    {
+        $date_maintenat = now();
 
         DB::table('date_contact')->insert([
             'derniere_visite' => $date_maintenat
@@ -36,12 +38,90 @@ class VisitesController extends Controller
 
         DB::table('visiter')->insert([
 //            request()-> ou $_POST pour recup les valeur du form
-//
-            'identifiant_employe' => request()->id_employe,
-            'identifiant_professionnel_de_sante' => request()->id_prof_sante,
-            'identifiant_medicament' => request()->id_medicament ,
+
+            'identifiant_employe' => request()->identifiant_employe,
+            'identifiant_professionnel_de_sante' => request()->identifiant_professionnel_de_sante,
+            'identifiant_medicament' => request()->identifiant_medicament ,
             'derniere_visite' => $date_maintenat
         ]);
+    }
+
+    public function updateVisite()
+    {
+        $date_maintenant = now();
+
+        // Mise à jour de la table date_contact
+        DB::table('date_contact')->update([
+            'derniere_visite' => $date_maintenant
+        ]);
+
+        // Mise à jour de la table visiter
+        //afficher les clef en hidden pour les reccuper
+        DB::table('visiter')->where([
+            'identifiant_employe' => \request()->identifiant_employe,
+            'identifiant_professionnel_de_sante' => \request()->identifiant_professionnel_de_sante,
+            'identifiant_medicament' => \request()->identifiant_medicament,
+        ])
+            ->update([
+            'identifiant_employe' => request()->identifiant_employe,
+            'identifiant_professionnel_de_sante' => request()->identifiant_professionnel_de_sante,
+            'identifiant_medicament' => request()->identifiant_medicament,
+            'derniere_visite' => $date_maintenant
+        ]);
+    }
+
+    public function deleteVisite($identifiant_employe, $identifiant_professionnel_de_sante, $identifiant_medicament, $date_maintenant)
+    {
+        // Suppression de l'enregistrement dans la table visiter
+        DB::table('visiter')
+            ->where('identifiant_employe', $identifiant_employe)
+            ->where('identifiant_professionnel_de_sante', $identifiant_professionnel_de_sante)
+            ->where('identifiant_medicament', $identifiant_medicament)
+            ->where('derniere_visite', $date_maintenant )
+            ->delete();
+
+        return redirect()->back()->with('success', 'La visite a été supprimée avec succès.');
+    }
+
+    public function createProSante()
+    {
+        DB::table('professionnel_de_sante')->insert([
+            // je ne suis pas sur qu'il faut mettre l'id
+            //'identifiant_professionnel_de_sante' => request()-> id_pro,
+            'nom_professionnel_de_sante' => request()-> nom_professionnel_de_sante,
+            'prenom_professionnel_de_sante' => \request()-> prenom_professionnel_de_sante,
+            'metier_professionnel_de_sante' => \request()-> metier_professionnel_de_sante,
+            'adresse' =>\request()-> adresse,
+            'code_postale' => \request()->  code_postale,
+            'ville_professionnel_de_sante' => \request()-> ville_professionnel_de_sante,
+            'mail_professionnel_de_sante' => \request()-> mail_professionnel_de_sante,
+            'telephone_professionnel_de_sante' => \request()-> telephone_professionnel_de_sante,
+
+        ]);
+    }
+    public function createEmploye()
+    {
+        DB::table('employe')->insert([
+            'identifiant_employe' => \request()->identifiant_employe,
+            'nom_employe' => \request()->nom_employe,
+            'prenom_employe' => \request()->prenom_employe,
+            'telephone_employe' => \request()->tele_employe,
+            'mail_employe' => \request()->mail_employe,
+            'mdp_employe' => \request()->mdp_employe,
+        ]);
+    }
+
+    public function updateEmploye($identifiant_employe)
+    {
+        DB::table('employe')
+            ->where('identifiant_employe', $identifiant_employe)
+            ->update([
+                'nom_employe' => \request()->nom_employe,
+                'prenom_employe' => \request()->prenom_employe,
+                'telephone_employe' => \request()->tele_employe,
+                'mail_employe' => \request()->mail_employe,
+                'mdp_employe' => \request()->mdp_employe,
+            ]);
     }
 
 }

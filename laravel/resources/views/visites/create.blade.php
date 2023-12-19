@@ -74,7 +74,7 @@
             </select>
 
             <label for="medicament">Médicament</label>
-    ²{{--    les info transites via le name, l'id est utilie que pour le css--}}
+    {{--    les info transites via le name, l'id est utilie que pour le css--}}
             <select name="id_medicament" id="medicament">
                 @foreach($medicaments as $medicament)
                     <option value="{{ $medicament->identifiant_medicament }}">{{ $medicament->nom_medicament .'-'. $medicament->nom_categorie }} </option>
