@@ -18,7 +18,7 @@ class VisitesController extends Controller
             ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
             ->get();
         $demarcheurs = DB::table('demarcheur')
-            ->join('employe', 'demarcheur.identifiant_employe_1', '=', 'employe.identifiant_employe')
+            ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
             ->get();
 
         return view('visites.create', [

@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="creaion des requetes">
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/log/logout.blade.php" afterDir="false" />
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="ajd controller employe et prosante&#10;creation de view login et logout&#10;rangement des fonction dans leurs controller">
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/employes/responsable.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
@@ -181,7 +182,7 @@
       <workItem from="1702969742305" duration="4407000" />
       <workItem from="1702988474396" duration="9379000" />
       <workItem from="1703064501236" duration="996000" />
-      <workItem from="1703074195884" duration="4635000" />
+      <workItem from="1703074195884" duration="14360000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -204,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1703001001366</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ajd controller employe et prosante&#10;creation de view login et logout&#10;rangement des fonction dans leurs controller">
+      <created>1703079376209</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703079376209</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ajd controller employe et prosante&#10;creation de view login et logout&#10;rangement des fonction dans leurs controller">
+      <created>1703079424704</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1703079424704</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +228,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="creaion des requetes" />
-    <option name="LAST_COMMIT_MESSAGE" value="creaion des requetes" />
+    <MESSAGE value="ajd controller employe et prosante&#10;creation de view login et logout&#10;rangement des fonction dans leurs controller" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajd controller employe et prosante&#10;creation de view login et logout&#10;rangement des fonction dans leurs controller" />
   </component>
 </project>

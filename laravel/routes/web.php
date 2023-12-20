@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\VisitesController;
+use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -12,3 +13,11 @@ Route::prefix('visites')->group(function () {
     //route qui valide un form
     Route::post('/create', [VisitesController::class, 'createVisite'])->name('creation_de_visite');
 });
+
+Route::prefix('employes')->group(function ()
+{
+    Route::get('/responsable',[EmployeController::class, 'show']);
+
+}
+
+);
