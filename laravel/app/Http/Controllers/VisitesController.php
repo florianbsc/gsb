@@ -9,7 +9,7 @@ use DateTime;
 
 class VisitesController extends Controller
 {
-    public function showCreat()
+    public function showCreate()
     {
         $pro_santes = DB::table('professionnel_de_sante')->get();
 
@@ -26,6 +26,7 @@ class VisitesController extends Controller
             'medicaments' => $medicaments,
             'demarcheurs' => $demarcheurs,
         ]);
+
     }
 
     public function createVisite()
@@ -83,46 +84,6 @@ class VisitesController extends Controller
         return redirect()->back()->with('success', 'La visite a été supprimée avec succès.');
     }
 
-    public function createProSante()
-    {
-        DB::table('professionnel_de_sante')->insert([
-            // je ne suis pas sur qu'il faut mettre l'id
-            //'identifiant_professionnel_de_sante' => request()-> id_pro,
-            'nom_professionnel_de_sante' => request()-> nom_professionnel_de_sante,
-            'prenom_professionnel_de_sante' => \request()-> prenom_professionnel_de_sante,
-            'metier_professionnel_de_sante' => \request()-> metier_professionnel_de_sante,
-            'adresse' =>\request()-> adresse,
-            'code_postale' => \request()->  code_postale,
-            'ville_professionnel_de_sante' => \request()-> ville_professionnel_de_sante,
-            'mail_professionnel_de_sante' => \request()-> mail_professionnel_de_sante,
-            'telephone_professionnel_de_sante' => \request()-> telephone_professionnel_de_sante,
-
-        ]);
-    }
-    public function createEmploye()
-    {
-        DB::table('employe')->insert([
-            'identifiant_employe' => \request()->identifiant_employe,
-            'nom_employe' => \request()->nom_employe,
-            'prenom_employe' => \request()->prenom_employe,
-            'telephone_employe' => \request()->tele_employe,
-            'mail_employe' => \request()->mail_employe,
-            'mdp_employe' => \request()->mdp_employe,
-        ]);
-    }
-
-    public function updateEmploye($identifiant_employe)
-    {
-        DB::table('employe')
-            ->where('identifiant_employe', $identifiant_employe)
-            ->update([
-                'nom_employe' => \request()->nom_employe,
-                'prenom_employe' => \request()->prenom_employe,
-                'telephone_employe' => \request()->tele_employe,
-                'mail_employe' => \request()->mail_employe,
-                'mdp_employe' => \request()->mdp_employe,
-            ]);
-    }
 
 }
 

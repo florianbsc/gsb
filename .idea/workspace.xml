@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="first commit">
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="creaion des requetes">
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/log/logout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -178,7 +179,9 @@
       <workItem from="1702229760924" duration="2180000" />
       <workItem from="1702661080063" duration="683000" />
       <workItem from="1702969742305" duration="4407000" />
-      <workItem from="1702988474396" duration="9136000" />
+      <workItem from="1702988474396" duration="9379000" />
+      <workItem from="1703064501236" duration="996000" />
+      <workItem from="1703074195884" duration="4635000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -194,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1702155949883</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="creaion des requetes">
+      <created>1703001001366</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703001001366</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +212,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+    <MESSAGE value="creaion des requetes" />
+    <option name="LAST_COMMIT_MESSAGE" value="creaion des requetes" />
   </component>
 </project>
