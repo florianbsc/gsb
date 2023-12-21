@@ -36,6 +36,20 @@
         @endforeach
     </ul>
 
+    <label for="delegue_region">Delegue Region</label>
+    <ul name="identifiant_delegue" id="delegue">
+        @foreach($delegue_regions as $delegue_region)
+            <li value="{{ $delegue_region->identifiant_delegue }}">{{ $delegue_region->nom_employe }} </li>
+        @endforeach
+    </ul>
+
+    <label for="employe">Employe</label>
+    <ul name="identifiant_employe" id="employe">
+        @foreach($employes as $employe)
+            <li value="{{ $employe->identifiant_employe }}">{{ $employe->nom_employe }} </li>
+        @endforeach
+    </ul>
+
     <button type="submit">Créer</button>
 </form>
 </body>

@@ -9,17 +9,25 @@ class EmployeController extends Controller
 {
     public function show()
     {
-        $secteurs = DB::table('secteur')->get();
-        $regions = DB::table('region')->get();
+        $secteurs = DB::table('secteur')
+            ->get();
+        $regions = DB::table('region')
+            ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
+            ->get();
         $employes = DB:: table('employe')->get();
-        $responsable_secteurs = DB::table('responsable_secteur')->get();
-        $delegue_regions = DB::table('delegue_region')->get();
+        $responsable_secteurs = DB::table('responsable_secteur')
+            ->join('secteur','responsable_secteur.nom_secteur', '=','secteur.nom_secteur')
+            ->get();
+        $delegue_regions = DB::table('delegue_region')
+            ->join('employe', 'delegue_region.identifiant_employer', '=', 'employe.identifiant_employe')
+            ->get();
+        // crée une jointure pour avoir le id_delegue->nom_employe
 
         return view('employes.responsable', [
-            //'elemenet(s)' est la variable qui ce crée sur la vu avec la valeurs => $variable(s)
+            //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
             'secteurs'=> $secteurs,
             'regions' => $regions,
-            'employe' => $employes,
+            'employes' => $employes,
             'responsable_secteurs' => $responsable_secteurs,
             'delegue_regions'=> $delegue_regions,
         ]);
@@ -57,7 +65,7 @@ class EmployeController extends Controller
     public function deleteEmploye($identifiant_employe)
     {
         // Suppression de l'enregistrement dans la table visiter
-        DB::table('emùploye')
+        DB::table('employe')
             ->where('identifiant_employe', $identifiant_employe)
             ->delete();
 
