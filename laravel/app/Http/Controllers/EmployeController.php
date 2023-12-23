@@ -9,19 +9,23 @@ class EmployeController extends Controller
 {
     public function show()
     {
+        $employes = DB:: table('employe')
+            ->get();
         $secteurs = DB::table('secteur')
             ->get();
         $regions = DB::table('region')
             ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
             ->get();
-        $employes = DB:: table('employe')->get();
-        $responsable_secteurs = DB::table('responsable_secteur')
-            ->join('secteur','responsable_secteur.nom_secteur', '=','secteur.nom_secteur')
-            ->get();
         $delegue_regions = DB::table('delegue_region')
-            ->join('employe', 'delegue_region.identifiant_employer', '=', 'employe.identifiant_employe')
+            ->join('employe', 'delegue_region.identifiant_employe', '=', 'employe.identifiant_employe')
             ->get();
+        $responsable_secteurs = DB::table('responsable_secteur')
+        ->join('employe','responsable_secteur.identifiant_responsable', '=','employe.identifiant_employe')
+        ->get();
         // crée une jointure pour avoir le id_delegue->nom_employe
+        $demarcheurs = DB::table('demarcheur')
+            ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+            ->get();
 
         return view('employes.responsable', [
             //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
@@ -30,6 +34,7 @@ class EmployeController extends Controller
             'employes' => $employes,
             'responsable_secteurs' => $responsable_secteurs,
             'delegue_regions'=> $delegue_regions,
+            'demarcheurs' => $demarcheurs,
         ]);
     }
 

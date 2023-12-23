@@ -20,7 +20,7 @@ class VisitesController extends Controller
         $demarcheurs = DB::table('demarcheur')
             ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
             ->get();
-
+dd($demarcheurs);
         return view('visites.create', [
             'pro_santes' => $pro_santes,
             'medicaments' => $medicaments,
