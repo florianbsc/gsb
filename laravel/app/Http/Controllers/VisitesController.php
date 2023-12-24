@@ -11,6 +11,11 @@ class VisitesController extends Controller
 {
     public function showCreate()
     {
+        $secteurs = DB::table('secteur')
+        ->get();
+        $regions = DB::table('region')
+            ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
+            ->get();
         $pro_santes = DB::table('professionnel_de_sante')->get();
 
         // Récupération des médicaments avec les noms de leurs catégories associées
@@ -19,14 +24,17 @@ class VisitesController extends Controller
             ->get();
         $demarcheurs = DB::table('demarcheur')
             ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+//            ->join('delegue_region', 'demarcheur.identifiant_demarcheur', '=', 'delegue_region.identifiant_delegue')
             ->get();
-dd($demarcheurs);
+//        dd($demarcheurs);
+
         return view('visites.create', [
+            'secteurs' => $secteurs,
+            'regions' => $regions,
             'pro_santes' => $pro_santes,
             'medicaments' => $medicaments,
             'demarcheurs' => $demarcheurs,
         ]);
-
     }
 
     public function createVisite()

@@ -26,7 +26,7 @@ class EmployeController extends Controller
         $demarcheurs = DB::table('demarcheur')
             ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
             ->get();
-
+//dd($demarcheurs);
         return view('employes.responsable', [
             //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
             'secteurs'=> $secteurs,

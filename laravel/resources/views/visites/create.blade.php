@@ -53,14 +53,20 @@
     </style>
 </head>
 <body>
-{{--{{dd($demarcheurs)  }}--}}
 
     <form action="{{  route('creation_de_visite') }}" method="post">
         @csrf
+        <label for="region">Région</label>
+        <select name="nom_region" id="region">
+            @foreach($regions as $region)
+                <option value="{{ $region->nom_region }}">{{$region->nom_region}}</option>
+            @endforeach
+        </select>
+
         <label for="employe">Employé</label>
         <select name="id_employe" id="employe">
             @foreach($demarcheurs as $demarcheur)
-                <option value="{{ $demarcheur->identifiant_employe }}">{{ $demarcheur->nom_employe .' '. $demarcheur->prenom_employe .' region : '. $demarcheur->nom_region }} </option>
+                <option value="{{ $demarcheur->identifiant_employe }}">{{ $demarcheur->nom_employe .' '. $demarcheur->prenom_employe }} </option>
 
             @endforeach
 

@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\VisitesController;
 use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\MedicamentController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,3 +22,8 @@ Route::prefix('employes')->group(function ()
 }
 
 );
+
+Route::prefix('medicaments')->group(function ()
+{
+    Route::get('/create', [MedicamentController::class, 'show']);
+});
