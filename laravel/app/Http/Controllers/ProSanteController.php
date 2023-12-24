@@ -1,11 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
 class ProSanteController extends Controller
 {
+    public function show()
+    {
+        $professionnel_de_santes = DB::table('professionnel_de_sante')->get();
+
+        return view('proSante.create', ['professionnel_de_sante'=> $professionnel_de_santes,]);
+    }
+
     public function createProSante()
     {
         DB::table('professionnel_de_sante')->insert([
@@ -23,12 +31,6 @@ class ProSanteController extends Controller
         ]);
     }
 
-    public function showProSante()
-    {
-        $professionnel_de_santes = DB::table('professionnel_de_sante')->get();
-
-        return view('employes.reponsable', ['professionnel_de_sante'=> $professionnel_de_santes,]);
-    }
 
     public function updateProSante($identifiant_professionnel_de_sante)
     {

@@ -2,6 +2,7 @@
 use App\Http\Controllers\VisitesController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\MedicamentController;
+use App\Http\Controllers\ProSanteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,4 +27,8 @@ Route::prefix('employes')->group(function ()
 Route::prefix('medicaments')->group(function ()
 {
     Route::get('/create', [MedicamentController::class, 'show']);
+});
+
+Route::prefix('proSante')->group(function (){
+    Route::get('create', [ProSanteController::class, 'show']);
 });
