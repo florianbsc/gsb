@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Controllers\Controller;
+use App\Models\Employe;
+
 class EmployeController extends Controller
 {
     public function show()
@@ -75,6 +78,23 @@ class EmployeController extends Controller
             ->delete();
 
         return redirect()->back()->with('success', 'L\'employé a été supprimée avec succès.');
+    }
+
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('nom_employe', 'mdp_responsable');
+
+        if (auth()->attempt($credentials)) {
+            return redirect()->intended('/dashboard');
+        }
+
+        return back()->withErrors(['login' => 'Identifiants incorrects.'])->withInput();
     }
 
 

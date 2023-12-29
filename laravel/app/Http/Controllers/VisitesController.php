@@ -48,9 +48,9 @@ class VisitesController extends Controller
         DB::table('visiter')->insert([
 //            request()-> ou $_POST pour recup les valeur du form
 
-            'identifiant_employe' => request()->identifiant_employe,
-            'identifiant_professionnel_de_sante' => request()->identifiant_professionnel_de_sante,
-            'identifiant_medicament' => request()->identifiant_medicament ,
+            'identifiant_employe' => request()->id_employe,
+            'identifiant_professionnel_de_sante' => request()->id_prof_sante,
+            'identifiant_medicament' => request()->id_medicament ,
             'derniere_visite' => $date_maintenat
         ]);
     }

@@ -13,7 +13,7 @@ Route::prefix('visites')->group(function () {
     //route qui affiche une page
     Route::get('/create', [VisitesController::class, 'showCreate']);
     //route qui valide un form
-    Route::post('/create', [VisitesController::class, 'createVisite'])->name('creation_de_visite');
+    Route::post('/create', [VisitesController::class, 'createVisite'])->name('creation_visite');
 });
 
 Route::prefix('employes')->group(function ()
@@ -27,8 +27,15 @@ Route::prefix('employes')->group(function ()
 Route::prefix('medicaments')->group(function ()
 {
     Route::get('/create', [MedicamentController::class, 'show']);
+    Route::post('/create',[MedicamentController::class, 'createMedicament'])->name('creation_medicament');
+});
+Route::prefix('categorie')->group(function ()
+{
+    Route::get('/create', [MedicamentController::class, 'showCategorie']);
+    Route::post('/create',[MedicamentController::class, 'createCategorie'])->name('creation_categorie');
 });
 
 Route::prefix('proSante')->group(function (){
-    Route::get('create', [ProSanteController::class, 'show']);
+    Route::get('create', [ProSanteController::class, 'showProSante']);
+    Route::post('/create',[ProSanteController::class,'createProSante'])->name('creation_professionnel_de_sante');
 });

@@ -8,15 +8,15 @@
     <title>Creation de medicament</title>
 </head>
 <body>
-<h1>Nouveau medicaments</h1>
+<h1>Nouveau medicament</h1>
 
-<form action="">
-    <label for="medicament">Medicmants</label><br>
-    <input type="text" name="nom_medeicament" placeholder="Nom"><br>
-    <input type="text" name="identifiant_categorie" placeholder="categorie"><br>
+<form action="{{  route('creation_medicament') }}" method="post">
+    @csrf
+    <label for="medicament">Médicament</label><br>
+    <input type="text" name="nom_medicament" placeholder="Nom"><br>
 
-
-    <select>
+    <label for="identifiant_categorie">Categorie</label>
+    <select name="id_categorie">
         @foreach($categories as $categorie)
             <option value="{{ $categorie->identifiant_categorie }}">{{ $categorie->nom_categorie }}</option>
         @endforeach

@@ -10,7 +10,8 @@
 <body>
 <h1>New categorie</h1>
 
-<form action="">
+<form action="{{ route('creation_categorie') }}" method="post">
+    @csrf
     <label for="categorie">Catégorie</label>
     <input type="text" name="nom_categorie" placeholder="Nom"><br>
 

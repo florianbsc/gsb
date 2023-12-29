@@ -54,7 +54,7 @@
 </head>
 <body>
 
-    <form action="{{  route('creation_de_visite') }}" method="post">
+    <form action="{{  route('creation_visite') }}" method="post">
         @csrf
         <label for="region">Région</label>
         <select name="nom_region" id="region">
@@ -64,31 +64,30 @@
         </select>
 
         <label for="employe">Employé</label>
-        <select name="id_employe" id="employe">
+        <select name="id_employe" id="id_employe">
             @foreach($demarcheurs as $demarcheur)
                 <option value="{{ $demarcheur->identifiant_employe }}">{{ $demarcheur->nom_employe .' '. $demarcheur->prenom_employe }} </option>
+            @endforeach
+        </select>
+
+        <label for="proffessionnel_sante">Professionnel de Santé</label>
+        <select name="id_prof_sante" id="proffessionnel_sante">
+            @foreach($pro_santes as $pro_sante)
+                <option value="{{ $pro_sante->identifiant_professionnel_de_sante }}">{{ $pro_sante->nom_professionnel_de_sante .' '. $pro_sante->prenom_professionnel_de_sante  }} </option>
+            @endforeach
+        </select>
+
+        <label for="medicament">Médicament</label>
+{{--    les info transites via le name, l'id est utilie que pour le css--}}
+        <select name="id_medicament" id="medicament">
+            @foreach($medicaments as $medicament)
+                <option value="{{ $medicament->identifiant_medicament }}">{{ $medicament->nom_medicament .'-'. $medicament->nom_categorie }} </option>
 
             @endforeach
-
-            </select>
-
-            <label for="proffessionnel_sante">Professionnel de Santé</label>
-            <select name="id_prof_sante" id="proffessionnel_sante">
-                @foreach($pro_santes as $pro_sante)
-                    <option value="{{ $pro_sante->identifiant_professionnel_de_sante }}">{{ $pro_sante->nom_professionnel_de_sante .' '. $pro_sante->prenom_professionnel_de_sante  }} </option>
-                @endforeach
-            </select>
-
-            <label for="medicament">Médicament</label>
-    {{--    les info transites via le name, l'id est utilie que pour le css--}}
-            <select name="id_medicament" id="medicament">
-                @foreach($medicaments as $medicament)
-                    <option value="{{ $medicament->identifiant_medicament }}">{{ $medicament->nom_medicament .'-'. $medicament->nom_categorie }} </option>
-
-                @endforeach
-            </select>
-            <button type="submit">Créer</button>
+        </select>
+        <button type="submit">Créer</button>
     </form>
+<p>ce que je voudrais faire lorsqu'on choisi une region c'est d'avoir que les delegue associer a cette region</p>
 
 </body>
 </html>

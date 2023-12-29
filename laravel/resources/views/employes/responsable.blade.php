@@ -74,7 +74,7 @@
         <label for="demarcheur">Demarcheur</label>
         <ul name="identifiant_demarcheur" id="demarcheur">
             @foreach($demarcheurs as $demarcheur)
-                <li value="{{ $demarcheur->identifiant_demarcheur }}">{{ $demarcheur->nom_demarcheur }} </li>
+                <li value="{{ $demarcheur->identifiant_demarcheur }}">{{ $demarcheur->nom_employe }} </li>
             @endforeach
         </ul>
 
