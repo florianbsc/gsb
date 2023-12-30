@@ -18,8 +18,9 @@ Route::prefix('visites')->group(function () {
 
 Route::prefix('employes')->group(function ()
 {
-    Route::get('/responsable',[EmployeController::class, 'show']);
-
+    Route::get('/create',[EmployeController::class, 'show']);
+    Route::post('/create',[EmployeController::class, 'createEmploye'])->name('creation_employe');
+    Route::get('/update',[EmployeController::class, 'updateEmploye']);
 }
 
 );

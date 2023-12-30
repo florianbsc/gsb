@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
-use App\Http\Controllers\Controller;
 use App\Models\Employe;
 
 class EmployeController extends Controller
@@ -30,7 +28,7 @@ class EmployeController extends Controller
             ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
             ->get();
 //dd($demarcheurs);
-        return view('employes.responsable', [
+        return view('employes.employe', [
             //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
             'secteurs'=> $secteurs,
             'regions' => $regions,
@@ -45,12 +43,12 @@ class EmployeController extends Controller
     public function createEmploye()
     {
         DB::table('employe')->insert([
-            'identifiant_employe' => \request()->identifiant_employe,
+//            'identifiant_employe' => \request()->identifiant_employe,
             'nom_employe' => \request()->nom_employe,
             'prenom_employe' => \request()->prenom_employe,
-            'telephone_employe' => \request()->tele_employe,
+            'telephone_employe' => \request()->telephone_employe,
             'mail_employe' => \request()->mail_employe,
-            'mdp_employe' => bcrypt(\request()->mdp_employe),
+            'mdp_employe' => \request()->mdp_employe,
         ]);
     }
 
@@ -66,8 +64,8 @@ class EmployeController extends Controller
                 'telephone_employe' => \request()->tele_employe,
                 'mail_employe' => \request()->mail_employe,
                 'mdp_employe' => bcrypt(\request()->mdp_employe),
-
             ]);
+        return view('employes.demarcheur');
     }
 
     public function deleteEmploye($identifiant_employe)
