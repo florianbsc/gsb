@@ -53,4 +53,14 @@ class MedicamentController extends Controller
             'nom_categorie' => request()->nom_categorie,
         ]);
     }
+
+    public function updateCategorie($identifiant_categorie)
+    {
+        DB::table('categorie')
+            ->where('identifiant_categorie')
+            ->update([
+                'nom_categorie' => \request()->nom_categorie,
+        ]);
+        return view('nom_categorie');
+    }
 }

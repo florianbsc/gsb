@@ -34,6 +34,7 @@ Route::prefix('categorie')->group(function ()
 {
     Route::get('/create', [MedicamentController::class, 'showCategorie']);
     Route::post('/create',[MedicamentController::class, 'createCategorie'])->name('creation_categorie');
+    Route::get('update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
 });
 
 Route::prefix('proSante')->group(function (){
