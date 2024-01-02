@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="je vais essayer de recuper les info d'un employer pour le faire devenir un demarcheur">
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="tentative d'update de categorie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/employe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/employe.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +187,8 @@
       <workItem from="1703143453413" duration="15233000" />
       <workItem from="1703187383426" duration="6669000" />
       <workItem from="1703410624959" duration="10868000" />
-      <workItem from="1703878749166" duration="14636000" />
+      <workItem from="1703878749166" duration="14689000" />
+      <workItem from="1704130273027" duration="5042000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -270,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703964066980</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="tentative d'update de categorie">
+      <created>1704051310611</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1704051310611</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,6 +309,7 @@
     <MESSAGE value="creation de new pro de saté" />
     <MESSAGE value="maj du code pour recupere les infos&#10;inserte dans les tables medoc, pros, categorie" />
     <MESSAGE value="je vais essayer de recuper les info d'un employer pour le faire devenir un demarcheur" />
-    <option name="LAST_COMMIT_MESSAGE" value="je vais essayer de recuper les info d'un employer pour le faire devenir un demarcheur" />
+    <MESSAGE value="tentative d'update de categorie" />
+    <option name="LAST_COMMIT_MESSAGE" value="tentative d'update de categorie" />
   </component>
 </project>

@@ -78,21 +78,38 @@ class EmployeController extends Controller
         return redirect()->back()->with('success', 'L\'employé a été supprimée avec succès.');
     }
 
+    /*
+     * PARTIE DE/CONNEXION
+     */
 
     public function showLoginForm()
     {
-        return view('login');
+        $employes = DB:: table('employe')
+            ->get();
+//        dd($employes);
+        return view('log.login',[
+            'employe' => $employes,
+        ]);
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->only('nom_employe', 'mdp_responsable');
+        $usermail = $request->input('mail_employe');
+        $password = $request->input('mdp_employe');
 
-        if (auth()->attempt($credentials)) {
-            return redirect()->intended('/dashboard');
+        $user = DB::table('employe')
+            ->where('mail_employe', $usermail)
+            ->where('mdp_employe', $password)
+            ->first();
+
+        if ($user) {
+            // L'utilisateur est authentifié
+            // Vous pouvez gérer la session ici si nécessaire
+            return redirect('/dashboard')->with('success', 'Login réussi. Bienvenue, ' . $usermail . '!');
         }
 
-        return back()->withErrors(['login' => 'Identifiants incorrects.'])->withInput();
+        // L'utilisateur n'est pas authentifié
+        return back()->withErrors(['log.login' => 'Identifiants incorrects.'])->withInput();
     }
 
 

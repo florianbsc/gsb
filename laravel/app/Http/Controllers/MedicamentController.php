@@ -57,10 +57,18 @@ class MedicamentController extends Controller
     public function updateCategorie($identifiant_categorie)
     {
         DB::table('categorie')
-            ->where('identifiant_categorie')
-            ->update([
-                'nom_categorie' => \request()->nom_categorie,
-        ]);
+            ->where('identifiant_categorie', $identifiant_categorie)
+            ->update(['nom_categorie' => \request()->nom_categorie,]);
+
         return view('nom_categorie');
+    }
+
+    public function deleteCategorie ($identifiant_categorie)
+    {
+        DB::table('categorie')
+            ->where('identifiant_categorie', $identifiant_categorie)
+            ->delete();
+
+        return redirect()->back()->with('success', 'La categorie à été supprimée avec succès.');
     }
 }
