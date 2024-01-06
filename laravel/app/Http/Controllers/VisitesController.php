@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class VisitesController extends Controller
 {
-    public function showCreate()
+    public function show()
     {
         $secteurs = DB::table('secteur')
         ->get();
@@ -91,6 +91,14 @@ class VisitesController extends Controller
         return redirect()->back()->with('success', 'La visite a été supprimée avec succès.');
     }
 
+    public function showPlanning()
+    {
+        $plannings = DB::table('visiter')->get();
+        dd($plannings);
+        return view('visites.planning',[
+            'visites' => $plannings,
+    ]);
+    }
 
 }
 

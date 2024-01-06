@@ -8,7 +8,7 @@ use App\Models\Employe;
 
 class EmployeController extends Controller
 {
-    public function show()
+    public function showEmploye()
     {
         $employes = DB:: table('employe')
             ->get();
@@ -39,7 +39,6 @@ class EmployeController extends Controller
         ]);
     }
 
-
     public function createEmploye()
     {
         DB::table('employe')->insert([
@@ -52,10 +51,25 @@ class EmployeController extends Controller
         ]);
     }
 
-
-
-    public function updateEmploye($identifiant_employe)
+    public function editEmploye($identifiant_employe)
     {
+
+        $employe = DB::table('employe')->where('identifiant_employe', $identifiant_employe)->first();
+
+        return view('employes.test', ['employe' => $employe]);
+
+    }
+
+    public function updateEmploye(Request $request, $identifiant_employe)
+    {
+        $request->validate([
+            'nom_employe' => 'required|string|max:255',
+            'prenom_employe' => 'required|string|max:255',
+            'telephone_employe' => 'required|string|max:15',
+            'mail_employe' => 'required|string|email|max:255',
+            'mdp_employe' => 'required|string|max:255',
+        ]);
+
         DB::table('employe')
             ->where('identifiant_employe', $identifiant_employe)
             ->update([
@@ -63,10 +77,12 @@ class EmployeController extends Controller
                 'prenom_employe' => \request()->prenom_employe,
                 'telephone_employe' => \request()->tele_employe,
                 'mail_employe' => \request()->mail_employe,
-                'mdp_employe' => bcrypt(\request()->mdp_employe),
+                'mdp_employe' => \request()->mdp_employe,
             ]);
-        return view('employes.demarcheur');
+
+        return redirect('/employe/' . $identifiant_employe . '/test')->with('success', 'Les informations de l\'employé ont été mises à jour.');
     }
+
 
     public function deleteEmploye($identifiant_employe)
     {

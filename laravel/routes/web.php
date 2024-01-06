@@ -11,20 +11,37 @@ Route::get('/', function () {
 
 Route::prefix('visites')->group(function ()
     {
+        Route::get('/planning', [VisitesController::class, 'showPlanning']);
         //route qui affiche une page
-        Route::get('/create', [VisitesController::class, 'showCreate']);
+        Route::get('/create', [VisitesController::class, 'show']);
         //route qui valide un form
         Route::post('/create', [VisitesController::class, 'createVisite'])->name('creation_visite');
+
+
     });
 
 Route::prefix('employes')->group(function ()
     {
-        Route::get('/create',[EmployeController::class, 'show']);
+        Route::get('/create',[EmployeController::class, 'showEmploye']);
         Route::post('/create',[EmployeController::class, 'createEmploye'])->name('creation_employe');
-        Route::get('/update',[EmployeController::class, 'updateEmploye']);
+        Route::get('/{id}/edit',[EmployeController::class, 'editEmploye'])->name('edit_employe');
+        Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
+
+
+
         Route::get('/login',[EmployeController::class, 'showLoginForm'])->name('login');
         Route::post('/login', [EmployeController::class, 'login']);
+
     });
+
+
+//// ---------------------------- CONNEXION
+//
+//Route::get('/login', [ConnexionController::class, 'show_login'])->name('login');
+//Route::post('/make-login', [ConnexionController::class, 'connexion'])->name('submit_login');
+//Route::get('/Create/account',[ConnexionController::class,'show_create_account'])->name('show_create_account')->middleware('role:admin');//middleware('role:admin|utilisateur')
+//Route::post('/Create/account',[ConnexionController::class, 'create_account'])->name('create_account')->middleware('role:admin');
+
 
 Route::prefix('medicaments')->group(function ()
     {

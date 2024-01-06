@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="tentative d'update de categorie">
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="creation de la page de connection pour les employe via l'email et le mdp">
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/employes/test.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/visites/planning.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/employe.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/employe.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/responsable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/responsable.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/logout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/logout.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +190,9 @@
       <workItem from="1703187383426" duration="6669000" />
       <workItem from="1703410624959" duration="10868000" />
       <workItem from="1703878749166" duration="14689000" />
-      <workItem from="1704130273027" duration="5042000" />
+      <workItem from="1704130273027" duration="7318000" />
+      <workItem from="1704297835651" duration="4291000" />
+      <workItem from="1704470608520" duration="12257000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -281,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704051310611</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="creation de la page de connection pour les employe via l'email et le mdp">
+      <created>1704193990646</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1704193990646</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -310,6 +321,7 @@
     <MESSAGE value="maj du code pour recupere les infos&#10;inserte dans les tables medoc, pros, categorie" />
     <MESSAGE value="je vais essayer de recuper les info d'un employer pour le faire devenir un demarcheur" />
     <MESSAGE value="tentative d'update de categorie" />
-    <option name="LAST_COMMIT_MESSAGE" value="tentative d'update de categorie" />
+    <MESSAGE value="creation de la page de connection pour les employe via l'email et le mdp" />
+    <option name="LAST_COMMIT_MESSAGE" value="creation de la page de connection pour les employe via l'email et le mdp" />
   </component>
 </project>
