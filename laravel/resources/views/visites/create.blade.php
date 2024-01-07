@@ -57,11 +57,18 @@
     <form action="{{  route('creation_visite') }}" method="post">
         @csrf
         <label for="region">Région</label>
-        <select name="nom_region" id="region">
-            @foreach($regions as $region)
-                <option value="{{ $region->nom_region }}">{{$region->nom_region}}</option>
-            @endforeach
-        </select>
+        @if($is_responsable)
+            <select name="nom_region" id="region">
+                @foreach($regions as $region)
+                    <option value="{{ $region->nom_region }}">{{$region->nom_region}}</option>
+                @endforeach
+            </select>
+        @else
+            <select name="nom_region" id="region" disabled>
+                <option>{{ $delegue_region  }}</option>
+            </select>
+        @endif
+
 
         <label for="employe">Employé</label>
         <select name="id_employe" id="id_employe">

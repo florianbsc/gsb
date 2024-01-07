@@ -9,6 +9,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/accueil', function () {
+    dd('connected');
+})->middleware('auth');
+
 Route::prefix('visites')->group(function ()
     {
         Route::get('/planning', [VisitesController::class, 'showPlanning']);
@@ -25,12 +29,13 @@ Route::prefix('employes')->group(function ()
         Route::get('/create',[EmployeController::class, 'showEmploye']);
         Route::post('/create',[EmployeController::class, 'createEmploye'])->name('creation_employe');
         Route::get('/{id}/edit',[EmployeController::class, 'editEmploye'])->name('edit_employe');
-        Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
+       //Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
 
 
 
         Route::get('/login',[EmployeController::class, 'showLoginForm'])->name('login');
         Route::post('/login', [EmployeController::class, 'login']);
+        Route::get('/logout',[EmployeController::class, 'logout'])->name('logout');
 
     });
 

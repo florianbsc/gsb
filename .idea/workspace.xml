@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="creation de la page de connection pour les employe via l'email et le mdp">
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/employes/test.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/visites/planning.blade.php" afterDir="false" />
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="a revoir">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/responsable.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/responsable.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/logout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/logout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/config/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/config/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +25,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="b841830b-f633-4109-a895-7cf0038869a9" />
+        <option name="url" value="https://github.com/florianbsc/gsb.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -192,7 +205,8 @@
       <workItem from="1703878749166" duration="14689000" />
       <workItem from="1704130273027" duration="7318000" />
       <workItem from="1704297835651" duration="4291000" />
-      <workItem from="1704470608520" duration="12257000" />
+      <workItem from="1704470608520" duration="12300000" />
+      <workItem from="1704575946760" duration="9486000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -292,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704193990646</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="a revoir">
+      <created>1704508064377</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1704508064377</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,6 +343,7 @@
     <MESSAGE value="je vais essayer de recuper les info d'un employer pour le faire devenir un demarcheur" />
     <MESSAGE value="tentative d'update de categorie" />
     <MESSAGE value="creation de la page de connection pour les employe via l'email et le mdp" />
-    <option name="LAST_COMMIT_MESSAGE" value="creation de la page de connection pour les employe via l'email et le mdp" />
+    <MESSAGE value="a revoir" />
+    <option name="LAST_COMMIT_MESSAGE" value="a revoir" />
   </component>
 </project>

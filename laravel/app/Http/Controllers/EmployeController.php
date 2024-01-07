@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Employe;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class EmployeController extends Controller
 {
@@ -100,34 +103,39 @@ class EmployeController extends Controller
 
     public function showLoginForm()
     {
-        $employes = DB:: table('employe')
-            ->get();
+            $employes = DB:: table('employe')
+                ->get();
 //        dd($employes);
         return view('log.login',[
             'employe' => $employes,
         ]);
     }
 
+    public function username()
+    {
+        return 'mail_employe';
+    }
+
     public function login(Request $request)
     {
-        $usermail = $request->input('mail_employe');
-        $password = $request->input('mdp_employe');
+        $credentials = [
+            'mail_employe' => $request->mail_employe,
+            'password' => $request->mdp_employe,
+        ];
 
-        $user = DB::table('employe')
-            ->where('mail_employe', $usermail)
-            ->where('mdp_employe', $password)
-            ->first();
-
-        if ($user) {
-            // L'utilisateur est authentifié
-            // Vous pouvez gérer la session ici si nécessaire
-            return redirect('/dashboard')->with('success', 'Login réussi. Bienvenue, ' . $usermail . '!');
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect('/accueil');
         }
-
         // L'utilisateur n'est pas authentifié
         return back()->withErrors(['log.login' => 'Identifiants incorrects.'])->withInput();
     }
 
-
-
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('login');
+    }
 }

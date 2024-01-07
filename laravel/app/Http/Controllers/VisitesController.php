@@ -10,29 +10,47 @@ class VisitesController extends Controller
 {
     public function show()
     {
+        $is_responsable = DB::table('responsable_secteur')
+        ->where('identifiant_responsable',auth()->user()->identifiant_employe)
+            ->first();
+        $regions = DB::table('delegue_region')
+            ->get();
+        if($is_responsable){
+            $nom_secteur = $is_responsable->nom_secteur;
+            $demarcheurs = DB::table('demarcheur')
+                ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+                ->get();
+        }else{
+            //$delegue_region = $is_responsable->;
+
+            $demarcheurs = DB::table('demarcheur')
+                ->where('demarcheur.identifiant_employe', auth()->user()->identifiant_employe)
+                ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+                ->get();
+            $delegue_region = DB::table('delegue_region')
+                ->where('identifiant_delegue', auth()->user()->identifiant_employe)
+                ->first()->nom_region;
+        }
+        //-----
         $secteurs = DB::table('secteur')
         ->get();
-        $regions = DB::table('region')
-            ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
-            ->get();
         $pro_santes = DB::table('professionnel_de_sante')->get();
 
         // Récupération des médicaments avec les noms de leurs catégories associées
         $medicaments = DB::table('medicament')
             ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
             ->get();
-        $demarcheurs = DB::table('demarcheur')
-            ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
-//            ->join('delegue_region', 'demarcheur.identifiant_demarcheur', '=', 'delegue_region.identifiant_delegue')
-            ->get();
+
+
 //        dd($demarcheurs);
 
         return view('visites.create', [
-            'secteurs' => $secteurs,
             'regions' => $regions,
+            'delegue_region' => $delegue_region ?? NULL,
             'pro_santes' => $pro_santes,
             'medicaments' => $medicaments,
             'demarcheurs' => $demarcheurs,
+            'is_responsable' => $is_responsable
         ]);
     }
 
