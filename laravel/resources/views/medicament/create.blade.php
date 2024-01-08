@@ -8,6 +8,9 @@
     <title>Creation de medicament</title>
 </head>
 <body>
+@extends('layout.app')
+
+@section('contenu')
 <h1>Nouveau medicament</h1>
 
 <form action="{{  route('creation_medicament') }}" method="post">
@@ -26,6 +29,6 @@
 
 
 </form>
-
+@stop
 </body>
 </html>

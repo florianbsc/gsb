@@ -115,9 +115,9 @@ class VisitesController extends Controller
     public function showPlanning()
     {
         $plannings = DB::table('visiter')->get();
-        dd($plannings);
+        dd('probleme d\'affichage car 4 clefs primaires', $plannings);
         return view('visites.planning',[
-            'visites' => $plannings,
+            'plannings' => $plannings,
     ]);
     }
 

@@ -8,6 +8,9 @@
     <title>creation Pro de Sante</title>
 </head>
 <body>
+@extends('layout.app')
+
+@section('contenu')
 <h1>New pro</h1>
 <form action="{{ route('creation_professionnel_de_sante') }}" method="post">
     @csrf
@@ -25,6 +28,6 @@
 
 </form>
 
-
+@stop
 </body>
 </html>

@@ -11,13 +11,13 @@ Route::get('/', function () {
 
 Route::get('/accueil', function () {
     dd('connected');
-})->middleware('auth');
+})->middleware('auth')->name('accueil');
 
 
 
 Route::prefix('visites')->group(function ()
     {
-        Route::get('/planning', [VisitesController::class, 'showPlanning']);
+        Route::get('/planning', [VisitesController::class, 'showPlanning'])->name('planning');
         //route qui affiche une page
         Route::get('/create', [VisitesController::class, 'show']);
         //route qui valide un form
@@ -41,6 +41,7 @@ Route::prefix('employes')->group(function ()
         Route::get('/{id}/edit',[EmployeController::class, 'editEmploye'])->name('edit_employe');
        //Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
 
+//// ---------------------------- CONNEXION
 
 
         Route::get('/login',[EmployeController::class, 'showLoginForm'])->name('login');
@@ -50,12 +51,6 @@ Route::prefix('employes')->group(function ()
     });
 
 
-//// ---------------------------- CONNEXION
-//
-//Route::get('/login', [ConnexionController::class, 'show_login'])->name('login');
-//Route::post('/make-login', [ConnexionController::class, 'connexion'])->name('submit_login');
-//Route::get('/Create/account',[ConnexionController::class,'show_create_account'])->name('show_create_account')->middleware('role:admin');//middleware('role:admin|utilisateur')
-//Route::post('/Create/account',[ConnexionController::class, 'create_account'])->name('create_account')->middleware('role:admin');
 
 
 Route::prefix('medicaments')->group(function ()

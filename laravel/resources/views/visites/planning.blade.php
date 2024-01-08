@@ -8,34 +8,25 @@
     <title>Document</title>
 </head>
 <body>
-<nav>
-    <a href="{{ route('login') }}">Connexion</a>
-    <ul>
-        <li>
-            <a href="{{ route('creation_visite') }}">crea visiteur</a>
-        </li>
-        <li>
-            <a href="{{ route('creation_demarcheur') }}">crea demarcheur</a>
-        </li>
-        <li>
-            <a href="{{ route('logout') }}">deco</a>
-        </li>
-    </ul>
-</nav>
+@extends('layout.app')
+
+@section('contenu')
 <h1>planning</h1>
 
-<form action="#" method="#">
+<form action="{{ route('planning') }}" method="post">
     @csrf
 
-    @foreach($plannings as $planning)
-        <select>
-            <option value="{{$planning}}"></option>
-        </select>
-    @endforeach
+    <label for="visite">Visites</label>
+    <select name="visite" id="visite">
+        @foreach($plannings as $planning)
+            <option value="{{$planning->}}">{{ $planning }}</option>
+        @endforeach
+    </select>
 
 
 
 </form>
+@stop
 
 </body>
 </html>

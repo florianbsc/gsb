@@ -6,6 +6,10 @@
     <title>Modifier l'employé</title>
 </head>
 <body>
+@extends('layout.app')
+
+@section('contenu')
+
 <h2>Modifier l'employé</h2>
 @if(session('success'))
     <p>{{ session('success') }}</p>
@@ -31,5 +35,7 @@
 
     <button type="submit">Enregistrer</button>
 </form>
+
+@stop
 </body>
 </html>

@@ -8,6 +8,9 @@
     <title>crée categorie</title>
 </head>
 <body>
+@extends('layout.app')
+
+@section('contenu')
 <h1>New categorie</h1>
 
 <form action="{{ route('creation_categorie') }}" method="post">
@@ -18,6 +21,6 @@
     <input type="submit">
 
 </form>
-
+@stop
 </body>
 </html>
