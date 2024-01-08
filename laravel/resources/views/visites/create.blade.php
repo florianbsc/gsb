@@ -53,7 +53,20 @@
     </style>
 </head>
 <body>
-
+<nav>
+    <a href="{{ route('login') }}">Connexion</a>
+    <ul>
+        <li>
+            <a href="{{ route('creation_visite') }}">crea visiteur</a>
+        </li>
+        <li>
+            <a href="{{ route('creation_demarcheur') }}">crea demarcheur</a>
+        </li>
+        <li>
+            <a href="{{ route('logout') }}">deco</a>
+        </li>
+    </ul>
+</nav>
     <form action="{{  route('creation_visite') }}" method="post">
         @csrf
         <label for="region">Région</label>
@@ -94,7 +107,6 @@
         </select>
         <button type="submit">Créer</button>
     </form>
-<p>ce que je voudrais faire lorsqu'on choisi une region c'est d'avoir que les delegue associer a cette region</p>
 
 </body>
 </html>

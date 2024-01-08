@@ -8,7 +8,20 @@
     <title>Affiche Responsable</title>
 </head>
 <body>
-
+<nav>
+    <a href="{{ route('login') }}">Connexion</a>
+    <ul>
+        <li>
+            <a href="{{ route('creation_visite') }}">crea visiteur</a>
+        </li>
+        <li>
+            <a href="{{ route('creation_demarcheur') }}">crea demarcheur</a>
+        </li>
+        <li>
+            <a href="{{ route('logout') }}">deco</a>
+        </li>
+    </ul>
+</nav>
 
     <h2>Creation employe</h2>
 

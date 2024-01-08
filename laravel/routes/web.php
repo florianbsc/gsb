@@ -13,6 +13,8 @@ Route::get('/accueil', function () {
     dd('connected');
 })->middleware('auth');
 
+
+
 Route::prefix('visites')->group(function ()
     {
         Route::get('/planning', [VisitesController::class, 'showPlanning']);

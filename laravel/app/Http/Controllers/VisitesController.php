@@ -10,11 +10,14 @@ class VisitesController extends Controller
 {
     public function show()
     {
-        $is_responsable = DB::table('responsable_secteur')
-        ->where('identifiant_responsable',auth()->user()->identifiant_employe)
-            ->first();
-        $regions = DB::table('delegue_region')
-            ->get();
+
+            $is_responsable = DB::table('responsable_secteur')
+                ->where('identifiant_responsable',auth()->user()->identifiant_employe)
+                ->first();
+            $regions = DB::table('delegue_region')
+                ->get();
+
+
         if($is_responsable){
             $nom_secteur = $is_responsable->nom_secteur;
             $demarcheurs = DB::table('demarcheur')
