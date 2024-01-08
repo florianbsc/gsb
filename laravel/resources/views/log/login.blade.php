@@ -122,7 +122,7 @@
     </style></head>
 <body>
 <div class="center">
-    <h1>Login</h1>
+    <h1>Connexion</h1>
     @if($errors->has('login'))
         <p>{{ $errors->first('login') }}</p>
     @endif
@@ -137,10 +137,11 @@
             <input name="mdp_employe" type="password" placeholder="Password" required >
         </div>
 
-        <div class="pass">Forgot Password?</div>
-        <input type="submit" value="Login">
+        <input type="submit" value="Connexion">
         <div class="signup_link">
-            Not a member? <a href="{{ route('creation_employe') }}">Signup</a>
+            Créé un Employe <a href="{{ route('creation_employe') }}">Créé</a><br>
+            Créé un Responasble <a href="{{ route('creation_responsable') }}">Créé</a><br>
+            Créé un Delegue <a href="{{ route('creation_delegue') }}">Créé</a><br>
         </div>
     </form>
 </div>

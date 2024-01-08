@@ -26,8 +26,16 @@ Route::prefix('visites')->group(function ()
 
 Route::prefix('employes')->group(function ()
     {
-        Route::get('/create',[EmployeController::class, 'showEmploye']);
-        Route::post('/create',[EmployeController::class, 'createEmploye'])->name('creation_employe');
+        Route::get('/create/employe',[EmployeController::class, 'showEmploye']);
+        Route::get('/create/responsable',[EmployeController::class, 'showResponsable']);
+        Route::get('/create/delegue',[EmployeController::class, 'showDelegue']);
+        Route::get('/create/demarcheur',[EmployeController::class, 'showDemarcheur']);
+
+        Route::post('/create/employe',[EmployeController::class, 'createEmploye'])->name('creation_employe');
+        Route::post('/create/responsable',[EmployeController::class, 'createResponsable'])->name('creation_responsable');
+        Route::post('/create/delegue',[EmployeController::class, 'createDelegue'])->name('creation_delegue');
+        Route::post('/create/demarcheur',[EmployeController::class, 'createDemarcheur'])->name('creation_demarcheur');
+
         Route::get('/{id}/edit',[EmployeController::class, 'editEmploye'])->name('edit_employe');
        //Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
 

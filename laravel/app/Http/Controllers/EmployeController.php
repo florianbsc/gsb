@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Employe;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
@@ -42,6 +43,98 @@ class EmployeController extends Controller
         ]);
     }
 
+    public function showResponsable()
+    {
+        $employes = DB:: table('employe')
+            ->get();
+        $secteurs = DB::table('secteur')
+            ->get();
+        $regions = DB::table('region')
+            ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
+            ->get();
+        $delegue_regions = DB::table('delegue_region')
+            ->join('employe', 'delegue_region.identifiant_employe', '=', 'employe.identifiant_employe')
+            ->get();
+        $responsable_secteurs = DB::table('responsable_secteur')
+            ->join('employe','responsable_secteur.identifiant_responsable', '=','employe.identifiant_employe')
+            ->get();
+        // crée une jointure pour avoir le id_delegue->nom_employe
+        $demarcheurs = DB::table('demarcheur')
+            ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+            ->get();
+//dd($demarcheurs);
+        return view('employes.responsable', [
+            //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
+            'secteurs'=> $secteurs,
+            'regions' => $regions,
+            'employes' => $employes,
+            'responsable_secteurs' => $responsable_secteurs,
+            'delegue_regions'=> $delegue_regions,
+            'demarcheurs' => $demarcheurs,
+        ]);
+    }
+
+    public function showDelegue()
+    {
+        $employes = DB:: table('employe')
+            ->get();
+        $secteurs = DB::table('secteur')
+            ->get();
+        $regions = DB::table('region')
+            ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
+            ->get();
+        $delegue_regions = DB::table('delegue_region')
+            ->join('employe', 'delegue_region.identifiant_employe', '=', 'employe.identifiant_employe')
+            ->get();
+        $responsable_secteurs = DB::table('responsable_secteur')
+            ->join('employe','responsable_secteur.identifiant_responsable', '=','employe.identifiant_employe')
+            ->get();
+        // crée une jointure pour avoir le id_delegue->nom_employe
+        $demarcheurs = DB::table('demarcheur')
+            ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+            ->get();
+//dd($demarcheurs);
+        return view('employes.delegue', [
+            //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
+            'secteurs'=> $secteurs,
+            'regions' => $regions,
+            'employes' => $employes,
+            'responsable_secteurs' => $responsable_secteurs,
+            'delegue_regions'=> $delegue_regions,
+            'demarcheurs' => $demarcheurs,
+        ]);
+    }
+    public function showDemarcheur()
+    {
+        $employes = DB:: table('employe')
+            ->get();
+        $secteurs = DB::table('secteur')
+            ->get();
+        $regions = DB::table('region')
+            ->join('secteur','region.nom_secteur', '=', 'secteur.nom_secteur')
+            ->get();
+        $delegue_regions = DB::table('delegue_region')
+            ->join('employe', 'delegue_region.identifiant_employe', '=', 'employe.identifiant_employe')
+            ->get();
+        $responsable_secteurs = DB::table('responsable_secteur')
+            ->join('employe','responsable_secteur.identifiant_responsable', '=','employe.identifiant_employe')
+            ->get();
+        // crée une jointure pour avoir le id_delegue->nom_employe
+        $demarcheurs = DB::table('demarcheur')
+            ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
+            ->get();
+
+        return view('employes.demarcheur', [
+            //'elemenet(s)' est la variable qui ce crée sur la vu avec pour valeurs => $variable(s)
+            'secteurs'=> $secteurs,
+            'regions' => $regions,
+            'employes' => $employes,
+            'responsable_secteurs' => $responsable_secteurs,
+            'delegue_regions'=> $delegue_regions,
+            'demarcheurs' => $demarcheurs,
+        ]);
+    }
+
     public function createEmploye()
     {
         DB::table('employe')->insert([
@@ -52,6 +145,104 @@ class EmployeController extends Controller
             'mail_employe' => \request()->mail_employe,
             'mdp_employe' => \request()->mdp_employe,
         ]);
+    }
+
+
+// ...
+
+    public function createResponsable(Request $request)
+    {
+        // Validez les données du formulaire
+        $request->validate([
+            'nom_employe' => 'required',
+            'prenom_employe' => 'required',
+            'telephone_employe' => 'required',
+            'mail_employe' => 'required',
+            'mdp_employe' => 'required',
+            'nom_secteur' => 'required',
+        ]);
+
+        // Créez un nouvel employé
+        $employeId = DB::table('employe')->insertGetId([
+            'nom_employe' => $request->input('nom_employe'),
+            'prenom_employe' => $request->input('prenom_employe'),
+            'telephone_employe' => $request->input('telephone_employe'),
+            'mail_employe' => $request->input('mail_employe'),
+            'mdp_employe' => $request->input('mdp_employe'),
+            'nom_secteur' => $request->input('nom_secteur'),
+            ]);
+
+        // Assignez le rôle de responsable de secteur à l'employé
+        DB::table('responsable')->insert([
+            'identifiant_responsable' => $employeId,
+            'nom_secteur' => 'nom_secteur',
+        ]);
+
+        // Redirigez avec un message de succès
+        return redirect()->back()->with('Le responsable de secteur a été créé avec succès.');
+    }
+
+    public function createDelegue(Request $request)
+    {
+        // Validez les données du formulaire
+        $request->validate([
+            'nom_employe' => 'required',
+            'prenom_employe' => 'required',
+            'telephone_employe' => 'required',
+            'mail_employe' => 'required',
+            'mdp_employe' => 'required',
+            'nom_region' => 'required',
+        ]);
+
+        // Créez un nouvel employé
+        $employeId = DB::table('employe')->insertGetId([
+            'nom_employe' => $request->input('nom_employe'),
+            'prenom_employe' => $request->input('prenom_employe'),
+            'telephone_employe' => $request->input('telephone_employe'),
+            'mail_employe' => $request->input('mail_employe'),
+            'mdp_employe' => $request->input('mdp_employe'),
+            'nom_region' => $request->input('nom_region'),
+        ]);
+
+        // Assignez le rôle de responsable de secteur à l'employé
+        DB::table('delegue')->insert([
+            'identifiant_delegue' => $employeId,
+            'nom_region' => 'nom_region',
+        ]);
+
+        // Redirigez avec un message de succès
+        return redirect()->back()->with('Le delegue de region a été créé avec succès.');
+    }
+    public function createDemarcheur(Request $request)
+    {
+        // Validez les données du formulaire
+        $request->validate([
+            'nom_employe' => 'required',
+            'prenom_employe' => 'required',
+            'telephone_employe' => 'required',
+            'mail_employe' => 'required',
+            'mdp_employe' => 'required',
+            'nom_region' => 'required',
+        ]);
+
+        // Créez un nouvel employé
+        $employeId = DB::table('employe')->insertGetId([
+            'nom_employe' => $request->input('nom_employe'),
+            'prenom_employe' => $request->input('prenom_employe'),
+            'telephone_employe' => $request->input('telephone_employe'),
+            'mail_employe' => $request->input('mail_employe'),
+            'mdp_employe' => $request->input('mdp_employe'),
+            'nom_region' => $request->input('nom_region'),
+        ]);
+
+        // Assignez le rôle de responsable de secteur à l'employé
+        DB::table('demarcheur')->insert([
+            'identifiant_delegue' => $employeId,
+            'identifiant_demarcheur' => 'identifiant_demarcheur',
+        ]);
+
+        // Redirigez avec un message de succès
+        return redirect()->back()->with('Le demarcheur a été créé avec succès.');
     }
 
     public function editEmploye($identifiant_employe)
