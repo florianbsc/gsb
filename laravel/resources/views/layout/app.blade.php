@@ -122,7 +122,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('rapport') }}">
                             <i class="bi bi-book"></i> Rapport
                         </a>
                     </li>

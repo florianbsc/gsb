@@ -3,6 +3,7 @@ use App\Http\Controllers\VisitesController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\MedicamentController;
 use App\Http\Controllers\ProSanteController;
+use App\Http\Controllers\RapportController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,7 +41,7 @@ Route::prefix('employes')->group(function ()
 
         Route::get('/{id}/edit',[EmployeController::class, 'editEmploye'])->name('edit_employe');
        //Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
-
+    });
 //// ---------------------------- CONNEXION
 
 
@@ -48,7 +49,7 @@ Route::prefix('employes')->group(function ()
         Route::post('/login', [EmployeController::class, 'login']);
         Route::get('/logout',[EmployeController::class, 'logout'])->name('logout');
 
-    });
+
 
 
 
@@ -63,11 +64,15 @@ Route::prefix('categorie')->group(function ()
     {
         Route::get('/create', [MedicamentController::class, 'showCategorie']);
         Route::post('/create',[MedicamentController::class, 'createCategorie'])->name('creation_categorie');
-        Route::get('update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
+        Route::get('/update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
     });
 
 Route::prefix('proSante')->group(function ()
     {
-        Route::get('create', [ProSanteController::class, 'showProSante']);
+        Route::get('/create', [ProSanteController::class, 'showProSante']);
         Route::post('/create',[ProSanteController::class,'createProSante'])->name('creation_professionnel_de_sante');
+    });
+Route::prefix('rapport')->group(function ()
+    {
+       Route::get('/create',[RapportController::class,'showRapport'])->name('rapport');
     });
