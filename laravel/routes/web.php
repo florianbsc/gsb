@@ -8,12 +8,22 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
 
-Route::get('/accueil', function () {
-    dd('connected');
 })->middleware('auth')->name('accueil');
 
+//page pour voir mes test
+Route::get('/test', function () {  return view('test'); });
+
+//Route::get('/accueil', function () {
+//    dd('connected');
+//})->middleware('auth')->name('accueil');
+
+//// ---------------------------- CONNEXION
+
+
+Route::get('/login',[EmployeController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [EmployeController::class, 'login']);
+Route::get('/logout',[EmployeController::class, 'logout'])->name('logout');
 
 
 Route::prefix('visites')->group(function ()
@@ -39,15 +49,7 @@ Route::prefix('employes')->group(function ()
         Route::post('/create/delegue',[EmployeController::class, 'createDelegue'])->name('creation_delegue');
         Route::post('/create/demarcheur',[EmployeController::class, 'createDemarcheur'])->name('creation_demarcheur');
 
-        Route::get('/{id}/edit',[EmployeController::class, 'editEmploye'])->name('edit_employe');
-       //Route::post('/{id}', [EmployeController::class, 'updateEmploye'])->name('employe_update');
     });
-//// ---------------------------- CONNEXION
-
-
-        Route::get('/login',[EmployeController::class, 'showLoginForm'])->name('login');
-        Route::post('/login', [EmployeController::class, 'login']);
-        Route::get('/logout',[EmployeController::class, 'logout'])->name('logout');
 
 
 

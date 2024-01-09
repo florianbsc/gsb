@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="visuel">
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" afterDir="false" />
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="creation de page rapport et du controlleur">
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/test.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ConnexionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -160,21 +167,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/gsb/laravel/resources/images",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/gsb/laravel/resources/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\gsb\laravel\resources\images" />
@@ -209,7 +216,8 @@
       <workItem from="1704470608520" duration="12300000" />
       <workItem from="1704575946760" duration="9512000" />
       <workItem from="1704666963339" duration="10018000" />
-      <workItem from="1704712718623" duration="17522000" />
+      <workItem from="1704712718623" duration="17683000" />
+      <workItem from="1704811678722" duration="12243000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -351,7 +359,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704731308841</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="creation de page rapport et du controlleur">
+      <created>1704732208555</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704732208555</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,6 +401,7 @@
     <MESSAGE value="ruban de navigation" />
     <MESSAGE value="pb pour afficher les vistes car besoin des 4 clefs primaires qui composent la table" />
     <MESSAGE value="visuel" />
-    <option name="LAST_COMMIT_MESSAGE" value="visuel" />
+    <MESSAGE value="creation de page rapport et du controlleur" />
+    <option name="LAST_COMMIT_MESSAGE" value="creation de page rapport et du controlleur" />
   </component>
 </project>

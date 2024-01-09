@@ -32,17 +32,6 @@ class ConnexionController extends Controller
         }
     }
 
-    public function show_login() {
-        return view('login');
-    }
-
-    public function SeDeconnecter() {
-        Auth::guard('web')->logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
-        return redirect()->route('login'); // redirect permet d'indiquer que il faut prendre la route
-    }
-
 
     public function show_create_account(){
         return view('create_account', ['roles' => Role::all(), 'fonctions' => \App\Models\Fonction::all()]);

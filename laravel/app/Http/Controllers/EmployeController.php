@@ -316,7 +316,7 @@ class EmployeController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect('/accueil');
+            return redirect('http://127.0.0.1:8000/');
         }
         // L'utilisateur n'est pas authentifié
         return back()->withErrors(['log.login' => 'Identifiants incorrects.'])->withInput();
