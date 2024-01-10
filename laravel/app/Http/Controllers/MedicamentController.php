@@ -10,17 +10,24 @@ class MedicamentController extends Controller
 {
     public function show()
     {
-        $categories = DB::table('categorie')
-            ->get();
+        if (auth()->check()) {
+            // L'utilisateur est connecté
+            $categories = DB::table('categorie')
+                ->get();
 
-       $medicaments = DB::table('medicament')
-           ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
-           ->get();
+            $medicaments = DB::table('medicament')
+                ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
+                ->get();
 //dd($medicaments);
-        return view('medicament.create',[
-            'categories' => $categories,
-            'medicaments' => $medicaments,
-        ]);
+            return view('medicament.create',[
+                'categories' => $categories,
+                'medicaments' => $medicaments,
+            ]);        } else {
+            // Redirigez l'utilisateur vers la page de connexion par exemple
+            return redirect()->route('login');
+        }
+
+
     }
     public function createMedicament()
     {

@@ -291,21 +291,52 @@ class EmployeController extends Controller
     /*
      * PARTIE DE/CONNEXION
      */
-
     public function showLoginForm()
     {
+        try {
+            // Utilisez le modèle Eloquent si possible, sinon continuez avec les requêtes SQL brutes
             $employes = DB:: table('employe')
                 ->get();
-//        dd($employes);
-        return view('log.login',[
-            'employe' => $employes,
-        ]);
+
+
+            return view('log.login', [
+                'employe' => $employes,
+            ]);
+        } catch (\Exception $e) {
+            // Gérez l'erreur de manière appropriée, par exemple, journalisez l'erreur ou renvoyez une page d'erreur
+            return view('errors.custom_error', [
+                'error_message' => "Une erreur s'est produite lors du chargement des employés.",
+            ]);
+        }
     }
+//    public function showLoginForm()
+//    {
+//            $employes = DB:: table('employe')
+//                ->get();
+////        dd($employes);
+//        return view('log.login',[
+//            'employe' => $employes,
+//        ]);
+//    }
 
     public function username()
     {
         return 'mail_employe';
     }
+
+
+//    public function login(Request $request)
+//    {
+//        $credentials = $request->only('mail_employe', 'mdp_employe');
+//
+//        if (Auth::attempt($credentials)) {
+//            $request->session()->regenerate();
+//            return redirect()->intended('http://127.0.0.1:8000/');
+//        }
+//
+//        // L'authentification a échoué
+//        return back()->withErrors(['login' => 'Identifiants incorrects.'])->withInput();
+//    }
 
     public function login(Request $request)
     {
@@ -319,7 +350,7 @@ class EmployeController extends Controller
             return redirect('http://127.0.0.1:8000/');
         }
         // L'utilisateur n'est pas authentifié
-        return back()->withErrors(['log.login' => 'Identifiants incorrects.'])->withInput();
+        return back()->withErrors(['login' => 'Identifiants ou mot de passe incorrects.'])->withInput();
     }
 
     public function logout(Request $request)

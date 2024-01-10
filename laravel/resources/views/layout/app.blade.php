@@ -70,7 +70,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('planning')}}">
+                        <a class="nav-link" href="{{route('visite')}}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-calendar-event" viewBox="0 0 16 16">
                                 <path
@@ -80,6 +80,16 @@
                             </svg>
                             Visite
                         </a>
+                        <ul>
+                            <li class="nav-item">
+                                <a href="{{route('creation_visite')}}">
+                                creation
+                                </a>
+                            </li>
+                            <ul>
+                                <li>test</li>
+                            </ul>
+                        </ul>
                     </li>
 
                     <li class="nav-item">

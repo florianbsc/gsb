@@ -10,13 +10,17 @@ class VisitesController extends Controller
 {
     public function show()
     {
-
+        if (auth()->check()) {
+            // L'utilisateur est connecté
             $is_responsable = DB::table('responsable_secteur')
                 ->where('identifiant_responsable',auth()->user()->identifiant_employe)
                 ->first();
             $regions = DB::table('delegue_region')
-                ->get();
-
+                ->get();        }
+        else {
+            // Redirigez l'utilisateur vers la page de connexion par exemple
+            return redirect()->route('login');
+        }
 
         if($is_responsable){
             $nom_secteur = $is_responsable->nom_secteur;
@@ -112,12 +116,12 @@ class VisitesController extends Controller
         return redirect()->back()->with('success', 'La visite a été supprimée avec succès.');
     }
 
-    public function showPlanning()
+    public function showVisite()
     {
-        $plannings = DB::table('visiter')->get();
-        dd('probleme d\'affichage car 4 clefs primaires', $plannings);
-        return view('visites.planning',[
-            'plannings' => $plannings,
+        $visites = DB::table('visiter')->get();
+        dd('probleme d\'affichage car 4 clefs primaires', $visites);
+        return view('visites.visite',[
+            'visites' => $visites,
     ]);
     }
 

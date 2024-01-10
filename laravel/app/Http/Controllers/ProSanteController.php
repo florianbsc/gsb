@@ -8,9 +8,16 @@ class ProSanteController extends Controller
 {
     public function showProSante()
     {
-        $professionnel_de_santes = DB::table('professionnel_de_sante')->get();
+        if (auth()->check()) {
+            // L'utilisateur est connecté
+            $professionnel_de_santes = DB::table('professionnel_de_sante')->get();
 
-        return view('proSante.create', ['professionnel_de_sante'=> $professionnel_de_santes,]);
+            return view('proSante.create', ['professionnel_de_sante'=> $professionnel_de_santes,]);        } else {
+            // Redirigez l'utilisateur vers la page de connexion par exemple
+            return redirect()->route('login');
+        }
+
+
     }
 
     public function createProSante()

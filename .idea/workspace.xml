@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="creation de page rapport et du controlleur">
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/test.blade.php" afterDir="false" />
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ConnexionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ConnexionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ConnexionController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/log/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/planning.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +216,7 @@
       <workItem from="1704575946760" duration="9512000" />
       <workItem from="1704666963339" duration="10018000" />
       <workItem from="1704712718623" duration="17683000" />
-      <workItem from="1704811678722" duration="12243000" />
+      <workItem from="1704811678722" duration="16308000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -366,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704732208555</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer">
+      <created>1704836031520</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704836031521</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -402,6 +408,8 @@
     <MESSAGE value="pb pour afficher les vistes car besoin des 4 clefs primaires qui composent la table" />
     <MESSAGE value="visuel" />
     <MESSAGE value="creation de page rapport et du controlleur" />
-    <option name="LAST_COMMIT_MESSAGE" value="creation de page rapport et du controlleur" />
+    <MESSAGE value="travail sur l'affichage de l'accueil et mise en forme du tableau des visites" />
+    <MESSAGE value="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer" />
+    <option name="LAST_COMMIT_MESSAGE" value="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer" />
   </component>
 </project>

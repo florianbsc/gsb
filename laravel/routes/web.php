@@ -28,7 +28,7 @@ Route::get('/logout',[EmployeController::class, 'logout'])->name('logout');
 
 Route::prefix('visites')->group(function ()
     {
-        Route::get('/planning', [VisitesController::class, 'showPlanning'])->name('planning');
+        Route::get('/', [VisitesController::class, 'showVisite'])->name('visite');
         //route qui affiche une page
         Route::get('/create', [VisitesController::class, 'show']);
         //route qui valide un form
