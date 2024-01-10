@@ -59,12 +59,13 @@ Route::prefix('employes')->group(function ()
 Route::prefix('medicaments')->group(function ()
     {
         Route::get('/create', [MedicamentController::class, 'show']);
+        Route::get('/', [MedicamentController::class, 'showMedicament'])->name('liste_medicament');
         Route::post('/create',[MedicamentController::class, 'createMedicament'])->name('creation_medicament');
     });
 
 Route::prefix('categorie')->group(function ()
     {
-        Route::get('/create', [MedicamentController::class, 'showCategorie']);
+//        Route::get('/create', [MedicamentController::class, 'showCategorie']);
         Route::post('/create',[MedicamentController::class, 'createCategorie'])->name('creation_categorie');
         Route::get('/update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
     });

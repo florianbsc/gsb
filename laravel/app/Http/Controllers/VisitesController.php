@@ -39,8 +39,8 @@ class VisitesController extends Controller
                 ->first()->nom_region;
         }
         //-----
-        $secteurs = DB::table('secteur')
-        ->get();
+        $secteurs = DB::table('secteur')->get();
+
         $pro_santes = DB::table('professionnel_de_sante')->get();
 
         // Récupération des médicaments avec les noms de leurs catégories associées
@@ -118,11 +118,34 @@ class VisitesController extends Controller
 
     public function showVisite()
     {
-        $visites = DB::table('visiter')->get();
-        dd('probleme d\'affichage car 4 clefs primaires', $visites);
+
+        $employes = DB:: table('employe')
+            ->get();
+
+        $professionnel_de_santes = DB::table('professionnel_de_sante')->get();
+
+        $categories = DB::table('categorie')
+            ->get();
+
+        $medicaments = DB::table('medicament')
+            ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
+            ->get();
+
+        $dates = DB::table('date_contact')->get();
+
+
+        $visites = DB::table('visiter')
+            ->join('employe', 'employe.identifiant_employe', '=', 'visiter.identifiant_employe')
+            ->join('professionnel_de_sante', 'professionnel_de_sante.identifiant_professionnel_de_sante', '=', 'visiter.identifiant_professionnel_de_sante')
+            ->join('medicament', 'medicament.identifiant_medicament', '=', 'visiter.identifiant_medicament')
+            ->join('date_contact','date_contact.derniere_visite', '=', 'visiter.derniere_visite')
+            ->get();
+
+
+//dd($visites);
         return view('visites.visite',[
             'visites' => $visites,
-    ]);
+        ]);
     }
 
 }

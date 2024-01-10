@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer">
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="affichage du tableau des visites et tableau des medicaments">
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ConnexionController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/planning.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -216,7 +215,8 @@
       <workItem from="1704575946760" duration="9512000" />
       <workItem from="1704666963339" duration="10018000" />
       <workItem from="1704712718623" duration="17683000" />
-      <workItem from="1704811678722" duration="16308000" />
+      <workItem from="1704811678722" duration="16674000" />
+      <workItem from="1704871119670" duration="12626000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -372,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1704836031521</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="bloquer l'acces aux personne non identifier + msg d'erreur en cas d'echet de connexion">
+      <created>1704855525391</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704855525391</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,6 +417,8 @@
     <MESSAGE value="creation de page rapport et du controlleur" />
     <MESSAGE value="travail sur l'affichage de l'accueil et mise en forme du tableau des visites" />
     <MESSAGE value="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer" />
-    <option name="LAST_COMMIT_MESSAGE" value="travail sur l'affichage de l'accueil et mise en forme du tableau des visites&#10;creation d'un page de test pour visualiser du code avant de l'integer" />
+    <MESSAGE value="bloquer l'acces aux personne non identifier + msg d'erreur en cas d'echet de connexion" />
+    <MESSAGE value="affichage du tableau des visites et tableau des medicaments" />
+    <option name="LAST_COMMIT_MESSAGE" value="affichage du tableau des visites et tableau des medicaments" />
   </component>
 </project>

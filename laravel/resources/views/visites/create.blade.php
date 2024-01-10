@@ -56,6 +56,7 @@
 @extends('layout.app')
 
 @section('contenu')
+
     <form action="{{  route('creation_visite') }}" method="post">
         @csrf
         <label for="region">Région</label>
