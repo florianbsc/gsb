@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>affiche responsable</title>
-
-
-</head>
-<body>
 @extends('layout.app')
 
 @section('contenu')
-
+    <div class="container-fluid">
 <h2>Creation Responsable</h2>
 
 <form action="{{ route('creation_responsable') }}" method="post">
@@ -31,8 +20,5 @@
     </select><br>
     <input type="submit">
 </form>
-
+    </div>
 @stop
-
-</body>
-</html>

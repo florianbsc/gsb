@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 
+//    renvoi vers la page app apres la connxion
 })->middleware('auth')->name('accueil');
 
 //page pour voir mes test
@@ -30,19 +31,17 @@ Route::prefix('visites')->group(function ()
     {
         Route::get('/', [VisitesController::class, 'showVisite'])->name('visite');
         //route qui affiche une page
-        Route::get('/create', [VisitesController::class, 'show']);
+        Route::get('/create', [VisitesController::class, 'showCreateVisite'])->middleware('auth');
         //route qui valide un form
         Route::post('/create', [VisitesController::class, 'createVisite'])->name('creation_visite');
-
-
     });
 
 Route::prefix('employes')->group(function ()
     {
         Route::get('/create/employe',[EmployeController::class, 'showEmploye']);
-        Route::get('/create/responsable',[EmployeController::class, 'showResponsable']);
-        Route::get('/create/delegue',[EmployeController::class, 'showDelegue']);
-        Route::get('/create/demarcheur',[EmployeController::class, 'showDemarcheur']);
+        Route::get('/create/responsable',[EmployeController::class, 'showResponsable'])->name('create_responsable');
+        Route::get('/create/delegue',[EmployeController::class, 'showDelegue'])->name('create_delegue');
+        Route::get('/create/demarcheur',[EmployeController::class, 'showDemarcheur'])->name('create_demarcheur');
 
         Route::post('/create/employe',[EmployeController::class, 'createEmploye'])->name('creation_employe');
         Route::post('/create/responsable',[EmployeController::class, 'createResponsable'])->name('creation_responsable');
@@ -65,9 +64,8 @@ Route::prefix('medicaments')->group(function ()
 
 Route::prefix('categorie')->group(function ()
     {
-//        Route::get('/create', [MedicamentController::class, 'showCategorie']);
         Route::post('/create',[MedicamentController::class, 'createCategorie'])->name('creation_categorie');
-        Route::get('/update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
+//        Route::get('/update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
     });
 
 Route::prefix('proSante')->group(function ()
@@ -78,4 +76,7 @@ Route::prefix('proSante')->group(function ()
 Route::prefix('rapport')->group(function ()
     {
        Route::get('/create',[RapportController::class,'showRapport'])->name('rapport');
+       Route::post('/depot',[RapportController::class, 'depotRapport'])->name('depot_rapport');
+       Route::get('/download/{chemin}', [RapportController::class, 'download'])->name('download_rapport');
+
     });

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Employe;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
@@ -347,6 +347,28 @@ class EmployeController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
+            $auth = Auth::user();
+            // Condition pour detecter la fonction de l'employé
+            $fonction = null;
+            $is_responsable = DB::table('responsable_secteur')
+                ->where('identifiant_responsable', auth()->user()->identifiant_employe)
+                ->exists();
+
+            if($is_responsable){
+                $fonction = 'responsable';
+            }else{
+                $is_delegue = DB::table('delegue_region')
+                    ->where('identifiant_delegue', auth()->user()->identifiant_employe)
+                    ->exists();
+                // Vérifier si délégué
+                if($is_delegue){
+                    $fonction = 'delegue';
+                }else{
+                    $fonction = 'demarcheur';
+                }
+            }
+
+            Session::put('fonction', $fonction);
             return redirect('http://127.0.0.1:8000/');
         }
         // L'utilisateur n'est pas authentifié

@@ -8,26 +8,20 @@ use Illuminate\Support\Facades\DB;
 
 class VisitesController extends Controller
 {
-    public function show()
+    public function showCreateVisite()
     {
-        if (auth()->check()) {
-            // L'utilisateur est connecté
-            $is_responsable = DB::table('responsable_secteur')
-                ->where('identifiant_responsable',auth()->user()->identifiant_employe)
-                ->first();
-            $regions = DB::table('delegue_region')
-                ->get();        }
-        else {
-            // Redirigez l'utilisateur vers la page de connexion par exemple
-            return redirect()->route('login');
-        }
+        $is_responsable = DB::table('responsable_secteur')
+            ->where('identifiant_responsable', auth()->user()->identifiant_employe)
+            ->first();
+        $regions = DB::table('delegue_region')
+            ->get();
 
-        if($is_responsable){
+        if ($is_responsable) {
             $nom_secteur = $is_responsable->nom_secteur;
             $demarcheurs = DB::table('demarcheur')
                 ->join('employe', 'demarcheur.identifiant_demarcheur', '=', 'employe.identifiant_employe')
                 ->get();
-        }else{
+        } else {
             //$delegue_region = $is_responsable->;
 
             $demarcheurs = DB::table('demarcheur')
@@ -74,8 +68,47 @@ class VisitesController extends Controller
 
             'identifiant_employe' => request()->id_employe,
             'identifiant_professionnel_de_sante' => request()->id_prof_sante,
-            'identifiant_medicament' => request()->id_medicament ,
-            'derniere_visite' => $date_maintenat
+            'identifiant_medicament' => request()->id_medicament,
+            'derniere_visite' => $date_maintenat,
+            'etat_visite' => 'en cours',
+        ]);
+    }
+
+
+
+
+    public function showVisite()
+    {
+//        dd('all visite');
+
+        DB:: table('employe')
+            ->get();
+
+        DB::table('professionnel_de_sante')->get();
+
+        DB::table('categorie')
+            ->get();
+
+        DB::table('medicament')
+            ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
+            ->get();
+
+        DB::table('date_contact')->get();
+
+
+        $visites = DB::table('visiter')
+
+            ->join('employe', 'employe.identifiant_employe', '=', 'visiter.identifiant_employe')
+            ->join('professionnel_de_sante', 'professionnel_de_sante.identifiant_professionnel_de_sante', '=', 'visiter.identifiant_professionnel_de_sante')
+            ->join('medicament', 'medicament.identifiant_medicament', '=', 'visiter.identifiant_medicament')
+            ->join('date_contact', 'date_contact.derniere_visite', '=', 'visiter.derniere_visite')
+            ->orderBy('visiter.derniere_visite', 'desc') // Order by the date_visite column in descending order
+            ->get();
+
+
+//dd($visites);
+        return view('visites.visite', [
+            'visites' => $visites,
         ]);
     }
 
@@ -96,13 +129,12 @@ class VisitesController extends Controller
             'identifiant_medicament' => \request()->identifiant_medicament,
         ])
             ->update([
-            'identifiant_employe' => request()->identifiant_employe,
-            'identifiant_professionnel_de_sante' => request()->identifiant_professionnel_de_sante,
-            'identifiant_medicament' => request()->identifiant_medicament,
-            'derniere_visite' => $date_maintenant
-        ]);
+                'identifiant_employe' => request()->identifiant_employe,
+                'identifiant_professionnel_de_sante' => request()->identifiant_professionnel_de_sante,
+                'identifiant_medicament' => request()->identifiant_medicament,
+                'derniere_visite' => $date_maintenant
+            ]);
     }
-
     public function deleteVisite($identifiant_employe, $identifiant_professionnel_de_sante, $identifiant_medicament, $date_maintenant)
     {
         // Suppression de l'enregistrement dans la table visiter
@@ -110,43 +142,10 @@ class VisitesController extends Controller
             ->where('identifiant_employe', $identifiant_employe)
             ->where('identifiant_professionnel_de_sante', $identifiant_professionnel_de_sante)
             ->where('identifiant_medicament', $identifiant_medicament)
-            ->where('derniere_visite', $date_maintenant )
+            ->where('derniere_visite', $date_maintenant)
             ->delete();
 
         return redirect()->back()->with('success', 'La visite a été supprimée avec succès.');
     }
 
-    public function showVisite()
-    {
-
-        $employes = DB:: table('employe')
-            ->get();
-
-        $professionnel_de_santes = DB::table('professionnel_de_sante')->get();
-
-        $categories = DB::table('categorie')
-            ->get();
-
-        $medicaments = DB::table('medicament')
-            ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
-            ->get();
-
-        $dates = DB::table('date_contact')->get();
-
-
-        $visites = DB::table('visiter')
-            ->join('employe', 'employe.identifiant_employe', '=', 'visiter.identifiant_employe')
-            ->join('professionnel_de_sante', 'professionnel_de_sante.identifiant_professionnel_de_sante', '=', 'visiter.identifiant_professionnel_de_sante')
-            ->join('medicament', 'medicament.identifiant_medicament', '=', 'visiter.identifiant_medicament')
-            ->join('date_contact','date_contact.derniere_visite', '=', 'visiter.derniere_visite')
-            ->get();
-
-
-//dd($visites);
-        return view('visites.visite',[
-            'visites' => $visites,
-        ]);
-    }
-
 }
-
