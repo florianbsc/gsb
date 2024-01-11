@@ -30,6 +30,7 @@ Route::get('/logout',[EmployeController::class, 'logout'])->name('logout');
 Route::prefix('visites')->group(function ()
     {
         Route::get('/', [VisitesController::class, 'showVisite'])->name('visite');
+        Route::get('/toutes', [VisitesController::class, 'showAllVisite'])->name('All_visite');
         //route qui affiche une page
         Route::get('/create', [VisitesController::class, 'showCreateVisite'])->middleware('auth');
         //route qui valide un form
@@ -59,6 +60,7 @@ Route::prefix('medicaments')->group(function ()
     {
         Route::get('/create', [MedicamentController::class, 'show']);
         Route::get('/', [MedicamentController::class, 'showMedicament'])->name('liste_medicament');
+        Route::post('/search', [MedicamentController::class, 'showMedicamentAvecRecherche'])->name('liste_medicament_recherche');
         Route::post('/create',[MedicamentController::class, 'createMedicament'])->name('creation_medicament');
     });
 

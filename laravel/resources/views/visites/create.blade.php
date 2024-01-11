@@ -41,6 +41,8 @@
 
             @endforeach
         </select>
+        <label>Date de visite</label>
+        <input type="datetime-local" name="date">
         <button type="submit">Créer</button>
     </form>
     </div>

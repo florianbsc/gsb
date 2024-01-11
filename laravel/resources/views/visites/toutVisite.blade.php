@@ -1,4 +1,3 @@
-<?php
 @extends('layout.app')
 @section('title', 'Liste de visites')
 @section('contenu')
@@ -14,7 +13,6 @@
             <span class="text-muted text-sm" style="margin-left: 10px; margin-top: 1.5%">Nombre de visites : {{count($visites)}}</span>
 
         </div>
-{{dd('page employer')}}
         <div class="card shadow border-0 mb-7">
 
             <div class="table-responsive">
@@ -22,6 +20,7 @@
 
                     <thead class="thead-light">
                     <tr>
+                        <th scope="col"><b>Demarcheur</b></th>
                         <th scope="col"><b>Date</b></th>
                         <th scope="col"><b>Heure</b></th>
                         <th scope="col"><b>Adresse</b></th>
@@ -31,11 +30,12 @@
                         <th scope="col"><b>Rapport</b></th>
                     </tr>
                     </thead>
-                    <span>{{auth()->user()->nom_employe.' '.auth()->user()->prenom_employe}}</span>
-
                     <tbody>
                     @foreach($visites as $visite)
                         <tr>
+                            <td>
+                                <b>{{$visite->nom_employe.' '.$visite->prenom_employe}}</b>
+                            </td>
                             <td>
                                 {{ Carbon::createFromFormat('Y-m-d H:i:s', $visite->derniere_visite)->format('d/m/Y')  }}
                             </td>
@@ -52,22 +52,31 @@
                                 {{$visite->nom_professionnel_de_sante.' '.$visite->prenom_professionnel_de_sante}}
                             </td>
                             <td>
-                            <span class="badge badge-lg badge-dot">
-                                            <i class="bg-success"></i> terminer
-                                        </span>
-                                {{$visite->etat_visite}}
-                            </td>
-                            <td >
-                                <label for="documentUpload" class="btn btn-sm btn-neutral">
-                                    <input type="file" id="documentUpload" style="display:none">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-upload" viewBox="0 0 16 16">
-                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
-                                        <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z"/>
-                                    </svg>
-                                </label>
+                                @switch($visite->etat_visite)
+                                    @case('terminer')
+                                        <span class="badge badge-lg badge-dot">
+                                        <i class="bg-success"></i> Terminer
+                                    </span>
+                                        @break
 
-                                {{$visite->rapport}}
-
+                                    @case('en cours')
+                                        <span class="badge badge-lg badge-dot">
+                                        <i class="bg-warning"></i> En cours
+                                    </span>
+                                        @break
+                                @endswitch
+                            </td><td >
+                                @if($visite->rapport == '')
+                               aucun rapport
+                                @else
+                                    <a href="{{ route('download_rapport', ['chemin' => $visite->rapport]) }}">
+                                        <button style="padding:4px;width:40px">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-circle" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"/>
+                                            </svg>
+                                        </button>
+                                    </a>
+                                @endif
                             </td>
                         </tr>
                     @endforeach

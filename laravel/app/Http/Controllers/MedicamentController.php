@@ -32,24 +32,30 @@ class MedicamentController extends Controller
 
     public function showMedicament()
     {
-        if (auth()->check()) {
-            // L'utilisateur est connecté
-            $categories = DB::table('categorie')
-                ->get();
-
-            $medicaments = DB::table('medicament')
+        $medicaments = DB::table('medicament')
                 ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
                 ->get();
-//dd($medicaments);
-            return view('medicament.liste',[
-                'categories' => $categories,
-                'medicaments' => $medicaments,
-            ]);        } else {
-            // Redirigez l'utilisateur vers la page de connexion par exemple
-            return redirect()->route('login');
-        }
 
+        return view('medicament.liste',[
+            'medicaments' => $medicaments,
+        ]);
+    }
 
+    public function showMedicamentAvecRecherche()
+    {
+        $medicaments = DB::table('medicament')
+            ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
+            ->where(function($query) {
+                $recherche = request()->recherche;
+                $query->where('medicament.nom_medicament', 'LIKE', "%$recherche%")
+                    ->orWhere('categorie.nom_categorie', 'LIKE', "%$recherche%");
+            })
+            ->get();
+
+        return view('medicament.liste',[
+            'medicaments' => $medicaments,
+            'valeur_recherche' => request()->recherche
+        ]);
     }
     public function createMedicament()
     {

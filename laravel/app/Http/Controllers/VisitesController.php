@@ -57,10 +57,9 @@ class VisitesController extends Controller
 
     public function createVisite()
     {
-        $date_maintenat = now();
 
         DB::table('date_contact')->insert([
-            'derniere_visite' => $date_maintenat
+            'derniere_visite' => request()->date,
         ]);
 
         DB::table('visiter')->insert([
@@ -69,9 +68,10 @@ class VisitesController extends Controller
             'identifiant_employe' => request()->id_employe,
             'identifiant_professionnel_de_sante' => request()->id_prof_sante,
             'identifiant_medicament' => request()->id_medicament,
-            'derniere_visite' => $date_maintenat,
+            'derniere_visite' => request()->date,
             'etat_visite' => 'en cours',
         ]);
+        return redirect()->route('All_visite');
     }
 
 
@@ -79,25 +79,7 @@ class VisitesController extends Controller
 
     public function showVisite()
     {
-//        dd('all visite');
-
-        DB:: table('employe')
-            ->get();
-
-        DB::table('professionnel_de_sante')->get();
-
-        DB::table('categorie')
-            ->get();
-
-        DB::table('medicament')
-            ->join('categorie', 'medicament.identifiant_categorie', '=', 'categorie.identifiant_categorie')
-            ->get();
-
-        DB::table('date_contact')->get();
-
-
         $visites = DB::table('visiter')
-
             ->join('employe', 'employe.identifiant_employe', '=', 'visiter.identifiant_employe')
             ->join('professionnel_de_sante', 'professionnel_de_sante.identifiant_professionnel_de_sante', '=', 'visiter.identifiant_professionnel_de_sante')
             ->join('medicament', 'medicament.identifiant_medicament', '=', 'visiter.identifiant_medicament')
@@ -105,12 +87,26 @@ class VisitesController extends Controller
             ->orderBy('visiter.derniere_visite', 'desc') // Order by the date_visite column in descending order
             ->get();
 
-
-//dd($visites);
         return view('visites.visite', [
             'visites' => $visites,
         ]);
     }
+    public function showAllVisite()
+    {
+
+        $visites = DB::table('visiter')
+            ->join('employe', 'employe.identifiant_employe', '=', 'visiter.identifiant_employe')
+            ->join('professionnel_de_sante', 'professionnel_de_sante.identifiant_professionnel_de_sante', '=', 'visiter.identifiant_professionnel_de_sante')
+            ->join('medicament', 'medicament.identifiant_medicament', '=', 'visiter.identifiant_medicament')
+            ->join('date_contact', 'date_contact.derniere_visite', '=', 'visiter.derniere_visite')
+            ->orderBy('visiter.derniere_visite', 'desc') // Order by the date_visite column in descending order
+            ->get();
+
+        return view('visites.toutVisite', [
+            'visites' => $visites,
+        ]);
+    }
+
 
     public function updateVisite()
     {

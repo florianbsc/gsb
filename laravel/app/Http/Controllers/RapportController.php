@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class RapportController extends Controller
 {
@@ -42,7 +43,7 @@ class RapportController extends Controller
 
     public function download($chemin)
     {
-        return Storage::download($chemin);
+        return Storage::download($chemin, 'RAPPORT - '.Carbon::now()->format('d-m-Y'));
     }
 }
 
