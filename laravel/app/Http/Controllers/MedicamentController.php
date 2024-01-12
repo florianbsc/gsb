@@ -65,6 +65,8 @@ class MedicamentController extends Controller
             'nom_medicament' => request()->nom_medicament,
             'identifiant_categorie' => request()->id_categorie ,
         ]);
+//
+        return redirect()->route('liste_medicament');
     }
     public function showCategorie()
     {

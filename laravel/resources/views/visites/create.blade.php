@@ -1,8 +1,19 @@
 @extends('layout.app')
-
+@section('title', 'Créer Visite')
 @section('contenu')
 
     <div class="container-fluid">
+        <h2>Créer Visite</h2>
+
+{{--        <div class="container-fluid">--}}
+{{--            <div class="col-sm-6 col-12 mb-4 mb-sm-0" style="display: flex">--}}
+
+{{--                <!-- Title -->--}}
+{{--                <h1 class="h2 mb-0 ls-tight">Les Médicaments</h1>--}}
+{{--                <span class="text-muted text-sm"--}}
+{{--                      style="margin-left: 10px; margin-top: 1.5%">Nombre de médicament : {{count($medicaments)}}</span>--}}
+
+{{--            </div>--}}
     <form action="{{  route('creation_visite') }}" method="post">
         @csrf
         <label for="region">Région</label>
@@ -29,7 +40,7 @@
         <label for="proffessionnel_sante">Professionnel de Santé</label>
         <select name="id_prof_sante" id="proffessionnel_sante">
             @foreach($pro_santes as $pro_sante)
-                <option value="{{ $pro_sante->identifiant_professionnel_de_sante }}">{{ $pro_sante->nom_professionnel_de_sante .' '. $pro_sante->prenom_professionnel_de_sante  }} </option>
+                <option value="{{ $pro_sante->identifiant_professionnel_de_sante }}">{{ $pro_sante->nom_professionnel_de_sante .' '. $pro_sante->prenom_professionnel_de_sante .' '. $pro_sante->metier_professionnel_de_sante }} </option>
             @endforeach
         </select>
 

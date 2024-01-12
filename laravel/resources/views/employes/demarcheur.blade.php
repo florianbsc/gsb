@@ -1,8 +1,9 @@
 @extends('layout.app')
-
+@section('title', 'Ajouter Démarcheur')
 @section('contenu')
+
     <div class="container-fluid">
-<h2>Creation Demarcheur</h2>
+    <h2>Ajouter Démarcheur</h2>
 
 <form action="{{ route('creation_demarcheur') }}" method="post">
     @csrf

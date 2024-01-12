@@ -30,24 +30,7 @@ class ProSanteController extends Controller
 
 
     }
-//    public function showProSanteAvecRecherche()
-//    {
-//        // L'utilisateur est connecté
-//        $professionnel_de_santes = DB::table('professionnel_de_sante')->get()
-//        ->where(function($query) {
-//            $recherche = request()->recherche;
-//            $query->where('professionnel_de_sante.nom_professionnel_de_sante', 'LIKE', "%$recherche%");
-////                  ->orWhere('professionnel_de_sante.prenom_professionnel_de_sante', 'LIKE', "%$recherche%");
-//                })
-//        ->get();
-//
-//        return view('proSante.toutProSante', [
-//            'professionnel_de_santes'=> $professionnel_de_santes,
-//            'valeur_recherche' => request()->recherche
-//        ]);
-//
-//
-//    }
+
     public function showProSanteAvecRecherche()
     {
         $professionnel_de_santes = DB::table('professionnel_de_sante')
@@ -87,6 +70,8 @@ class ProSanteController extends Controller
             'telephone_professionnel_de_sante' => \request()-> telephone_professionnel_de_sante,
 
         ]);
+        return redirect()->route('all_professionnel_de_sante');
+
     }
 
 

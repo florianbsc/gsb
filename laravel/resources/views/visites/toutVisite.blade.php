@@ -8,7 +8,7 @@
         <div class="col-sm-6 col-12 mb-4 mb-sm-0" style="display: flex">
 
             <!-- Title -->
-            <h1 class="h2 mb-0 ls-tight">Mes visites</h1>
+            <h1 class="h2 mb-0 ls-tight">Visites</h1>
             <span class="text-muted text-sm" style="margin-left: 10px; margin-top: 1.5%">Nombre de visites : {{count($visites)}}</span>
 
         </div>

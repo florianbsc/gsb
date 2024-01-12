@@ -1,12 +1,12 @@
 
 @extends('layout.app')
-
+@section('title', 'Création médicaments')
 @section('contenu')
-<h1>Nouveau medicament</h1>
+<h1>Création Médicament</h1>
 
 <form action="{{  route('creation_medicament') }}" method="post">
     @csrf
-    <label for="medicament">Médicament</label><br>
+    <label for="medicament"></label><br>
     <input type="text" name="nom_medicament" placeholder="Nom"><br>
 
     <label for="identifiant_categorie">Categorie</label>
@@ -16,8 +16,5 @@
         @endforeach
     </select><br>
     <input type="submit">
-
-
-
 </form>
 @stop

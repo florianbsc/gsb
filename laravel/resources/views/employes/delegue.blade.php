@@ -1,9 +1,8 @@
 @extends('layout.app')
-@section('title', 'Créer de Délégué')
-
+@section('title', 'Ajouter de Délégué')
 @section('contenu')
     <div class="container-fluid">
-    <h2>Création Délégué</h2>
+    <h2>Ajouter Délégué</h2>
 
     <form action="{{ route('creation_delegue') }}" method="post">
         @csrf

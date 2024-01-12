@@ -1,7 +1,7 @@
 @extends('layout.app')
+@section('title', 'Liste médicaments')
 
 @section('contenu')
-    {{--    {{dd($medicaments)}}--}}
 
 
 
