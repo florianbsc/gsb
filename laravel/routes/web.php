@@ -15,9 +15,6 @@ Route::get('/', function () {
 //page pour voir mes test
 Route::get('/test', function () {  return view('test'); });
 
-//Route::get('/accueil', function () {
-//    dd('connected');
-//})->middleware('auth')->name('accueil');
 
 //// ---------------------------- CONNEXION
 
@@ -40,9 +37,10 @@ Route::prefix('visites')->group(function ()
 Route::prefix('employes')->group(function ()
     {
         Route::get('/create/employe',[EmployeController::class, 'showEmploye']);
-        Route::get('/create/responsable',[EmployeController::class, 'showResponsable'])->name('create_responsable');
+//        Route::get('/create/responsable',[EmployeController::class, 'showResponsable'])->name('create_responsable');
         Route::get('/create/delegue',[EmployeController::class, 'showDelegue'])->name('create_delegue');
         Route::get('/create/demarcheur',[EmployeController::class, 'showDemarcheur'])->name('create_demarcheur');
+        Route::get('/show/demarcheur',[EmployeController::class, 'showAllDemarcheur'])->name('allDemarcheur');
 
         Route::post('/create/employe',[EmployeController::class, 'createEmploye'])->name('creation_employe');
         Route::post('/create/responsable',[EmployeController::class, 'createResponsable'])->name('creation_responsable');
@@ -54,31 +52,31 @@ Route::prefix('employes')->group(function ()
 
 
 
-
-
 Route::prefix('medicaments')->group(function ()
     {
         Route::get('/create', [MedicamentController::class, 'show']);
         Route::get('/', [MedicamentController::class, 'showMedicament'])->name('liste_medicament');
-        Route::post('/search', [MedicamentController::class, 'showMedicamentAvecRecherche'])->name('liste_medicament_recherche');
         Route::post('/create',[MedicamentController::class, 'createMedicament'])->name('creation_medicament');
+        Route::post('/search', [MedicamentController::class, 'showMedicamentAvecRecherche'])->name('liste_medicament_recherche');
     });
 
 Route::prefix('categorie')->group(function ()
     {
         Route::post('/create',[MedicamentController::class, 'createCategorie'])->name('creation_categorie');
-//        Route::get('/update',[MedicamentController::class,'updateCategorie'])->name('maj_categorie');
     });
 
 Route::prefix('proSante')->group(function ()
     {
         Route::get('/create', [ProSanteController::class, 'showProSante']);
         Route::post('/create',[ProSanteController::class,'createProSante'])->name('creation_professionnel_de_sante');
+        Route::get('/show',[ProSanteController::class,'showAllProSante'])->name('all_professionnel_de_sante');
+        Route::post('/search', [ProSanteController::class, 'showProSanteAvecRecherche'])->name('liste_professionnel_de_sante_recherche');
+
     });
+
+
 Route::prefix('rapport')->group(function ()
     {
-       Route::get('/create',[RapportController::class,'showRapport'])->name('rapport');
        Route::post('/depot',[RapportController::class, 'depotRapport'])->name('depot_rapport');
        Route::get('/download/{chemin}', [RapportController::class, 'download'])->name('download_rapport');
-
     });

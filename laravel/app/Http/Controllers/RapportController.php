@@ -9,17 +9,7 @@ use Carbon\Carbon;
 
 class RapportController extends Controller
 {
-    public function showRapport()
-    {
-        if (auth()->check()) {
-            // L'utilisateur est connecté
-            return view('rapport.import');
-        } else {
-            // Redirigez l'utilisateur vers la page de connexion par exemple
-            return redirect()->route('login');
-        }
 
-    }
 
     public function depotRapport ()
     {

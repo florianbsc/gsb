@@ -4,15 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="rapport">
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="finalisation">
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/employes/toutdemarcheur.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/laravel/resources/views/proSante/toutProSante.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/demarcheur.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/demarcheur.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/test.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/medicament/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/medicament/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/visiteEmploye.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -218,7 +226,8 @@
       <workItem from="1704811678722" duration="16674000" />
       <workItem from="1704871119670" duration="20551000" />
       <workItem from="1704973488746" duration="5491000" />
-      <workItem from="1704998183144" duration="17116000" />
+      <workItem from="1704998183144" duration="18194000" />
+      <workItem from="1705043505424" duration="11198000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -395,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705010570348</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="finalisation">
+      <created>1705015614891</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1705015614891</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,6 +453,7 @@
     <MESSAGE value="affichage du tableau des visites et tableau des medicaments" />
     <MESSAGE value="depose de rapport" />
     <MESSAGE value="rapport" />
-    <option name="LAST_COMMIT_MESSAGE" value="rapport" />
+    <MESSAGE value="finalisation" />
+    <option name="LAST_COMMIT_MESSAGE" value="finalisation" />
   </component>
 </project>

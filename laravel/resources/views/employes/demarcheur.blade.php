@@ -6,7 +6,7 @@
 
 <form action="{{ route('creation_demarcheur') }}" method="post">
     @csrf
-    <label for="demarcheur">Demarcheur</label><br>
+{{--    <label for="demarcheur">Demarcheur</label><br>--}}
     <input type="text" name="nom_employe" placeholder="Nom"><br>
     <input type="text" name="prenom_employe" placeholder="Prénom"><br>
     <input type="text" name="telephone_employe" placeholder="Numéro de téléphone"><br>

@@ -4,7 +4,6 @@
     @php
         use Carbon\Carbon;
     @endphp
-    <title>TEST</title>
     <div class="container-fluid">
         <div class="col-sm-6 col-12 mb-4 mb-sm-0" style="display: flex">
 
@@ -21,7 +20,7 @@
                     <thead class="thead-light">
                     <tr>
                         <th scope="col"><b>Demarcheur</b></th>
-                        <th scope="col"><b>Date</b></th>
+                        <th scope="col"><b>Date de Visite</b></th>
                         <th scope="col"><b>Heure</b></th>
                         <th scope="col"><b>Adresse</b></th>
                         <th scope="col"><b>Médicament</b></th>

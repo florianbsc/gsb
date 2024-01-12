@@ -1,4 +1,5 @@
 @extends('layout.app')
+@section('title', 'Créer de Délégué')
 
 @section('contenu')
     <div class="container-fluid">
@@ -6,25 +7,21 @@
 
     <form action="{{ route('creation_delegue') }}" method="post">
         @csrf
-        <label for="nom_employe">Nom</label><br>
+{{--        <label for="delegue">Délégué</label><br>--}}
         <input type="text" name="nom_employe" placeholder="Nom" required><br>
 
-        <label for="prenom_employe">Prénom</label><br>
         <input type="text" name="prenom_employe" placeholder="Prénom" required><br>
 
-        <label for="telephone_employe">Numéro de téléphone</label><br>
         <input type="text" name="telephone_employe" placeholder="Numéro de téléphone" required><br>
 
-        <label for="mail_employe">Mail</label><br>
         <input type="text" name="mail_employe" placeholder="Mail" required><br>
 
-        <label for="mdp_employe">Mot de Passe</label><br>
         <input type="password" name="mdp_employe" placeholder="Mot de Passe" required><br>
 
         <label for="nom_region">Région</label><br>
         <select name="nom_region" required>
             @foreach($regions as $region)
-                <option value="{{ $region->nom_region }}">{{ 'Région : '. $region->nom_region }}</option>
+                <option value="{{ $region->nom_region }}">{{ $region->nom_region }}</option>
             @endforeach
         </select><br>
 

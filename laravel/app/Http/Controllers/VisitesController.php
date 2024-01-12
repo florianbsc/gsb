@@ -10,6 +10,7 @@ class VisitesController extends Controller
 {
     public function showCreateVisite()
     {
+
         $is_responsable = DB::table('responsable_secteur')
             ->where('identifiant_responsable', auth()->user()->identifiant_employe)
             ->first();
@@ -80,6 +81,7 @@ class VisitesController extends Controller
     public function showVisite()
     {
         $visites = DB::table('visiter')
+            ->where( 'employe.identifiant_employe', auth()->user()->identifiant_employe)
             ->join('employe', 'employe.identifiant_employe', '=', 'visiter.identifiant_employe')
             ->join('professionnel_de_sante', 'professionnel_de_sante.identifiant_professionnel_de_sante', '=', 'visiter.identifiant_professionnel_de_sante')
             ->join('medicament', 'medicament.identifiant_medicament', '=', 'visiter.identifiant_medicament')
@@ -105,43 +107,6 @@ class VisitesController extends Controller
         return view('visites.toutVisite', [
             'visites' => $visites,
         ]);
-    }
-
-
-    public function updateVisite()
-    {
-        $date_maintenant = now();
-
-        // Mise à jour de la table date_contact
-        DB::table('date_contact')->update([
-            'derniere_visite' => $date_maintenant
-        ]);
-
-        // Mise à jour de la table visiter
-        //afficher les clef en hidden pour les reccuper
-        DB::table('visiter')->where([
-            'identifiant_employe' => \request()->identifiant_employe,
-            'identifiant_professionnel_de_sante' => \request()->identifiant_professionnel_de_sante,
-            'identifiant_medicament' => \request()->identifiant_medicament,
-        ])
-            ->update([
-                'identifiant_employe' => request()->identifiant_employe,
-                'identifiant_professionnel_de_sante' => request()->identifiant_professionnel_de_sante,
-                'identifiant_medicament' => request()->identifiant_medicament,
-                'derniere_visite' => $date_maintenant
-            ]);
-    }
-    public function deleteVisite($identifiant_employe, $identifiant_professionnel_de_sante, $identifiant_medicament, $date_maintenant)
-    {
-        // Suppression de l'enregistrement dans la table visiter
-        DB::table('visiter')
-            ->where('identifiant_employe', $identifiant_employe)
-            ->where('identifiant_professionnel_de_sante', $identifiant_professionnel_de_sante)
-            ->where('identifiant_medicament', $identifiant_medicament)
-            ->where('derniere_visite', $date_maintenant)
-            ->delete();
-
-        return redirect()->back()->with('success', 'La visite a été supprimée avec succès.');
     }
 
 }

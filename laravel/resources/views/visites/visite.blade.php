@@ -21,7 +21,7 @@ use Carbon\Carbon;
 
                     <thead class="thead-light">
                     <tr>
-                        <th scope="col"><b>Date</b></th>
+                        <th scope="col"><b>Date Visite</b></th>
                         <th scope="col"><b>Heure</b></th>
                         <th scope="col"><b>Adresse</b></th>
                         <th scope="col"><b>Médicament</b></th>
