@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="finalisation">
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/employes/toutdemarcheur.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laravel/resources/views/proSante/toutProSante.blade.php" afterDir="false" />
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="avant presentation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/EmployeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/ProSanteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/RapportController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/VisitesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/delegue.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/demarcheur.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/employes/demarcheur.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/employes/test.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/medicament/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/medicament/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/rapport/import.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -227,7 +219,10 @@
       <workItem from="1704871119670" duration="20551000" />
       <workItem from="1704973488746" duration="5491000" />
       <workItem from="1704998183144" duration="18194000" />
-      <workItem from="1705043505424" duration="11198000" />
+      <workItem from="1705043505424" duration="23063000" />
+      <workItem from="1705241482305" duration="1375000" />
+      <workItem from="1705394914482" duration="1157000" />
+      <workItem from="1705615765794" duration="2777000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>
@@ -411,7 +406,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705015614891</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="ajt de la fonction de la recherche pro sante">
+      <created>1705054870932</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705054870932</updated>
+    </task>
+    <task id="LOCAL-00028" summary="avant presentation">
+      <created>1705072336240</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1705072336241</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,8 +438,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="first commit" />
-    <MESSAGE value="creaion des requetes" />
     <MESSAGE value="ajd controller employe et prosante&#10;creation de view login et logout&#10;rangement des fonction dans leurs controller" />
     <MESSAGE value="creation des routes pour aller aux view responsable.blade.php&#10;debut de creation de la page pour recuperer les infos des tables employ, responsable, delegue" />
     <MESSAGE value="debut de creation de la page pour recuperer les infos des tables employ, responsable, delegue" />
@@ -454,6 +461,8 @@
     <MESSAGE value="depose de rapport" />
     <MESSAGE value="rapport" />
     <MESSAGE value="finalisation" />
-    <option name="LAST_COMMIT_MESSAGE" value="finalisation" />
+    <MESSAGE value="ajt de la fonction de la recherche pro sante" />
+    <MESSAGE value="avant presentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="avant presentation" />
   </component>
 </project>

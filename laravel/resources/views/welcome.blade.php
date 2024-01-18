@@ -5,8 +5,9 @@
     <div class="container-fluid text-center">
         <div class="welcome-container">
             <h1 class="welcome-message">Bonjour {{ auth()->user()->prenom_employe }},</h1><br>
-            <h2>Bienvenue dans votre espace de gestion de visie</h2>
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6b8a0699093857.5eeafdd995e46.gif" alt="Your Image" class="welcome-image">
+            <h2>Bienvenue dans votre espace de gestion de visite</h2>
+            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6b8a0699093857.5eeafdd995e46.gif"
+                 alt="Your Image" class="welcome-image">
         </div>
     </div>
 
