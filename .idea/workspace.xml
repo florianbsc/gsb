@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="avant presentation">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/app/Http/Controllers/MedicamentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/medicament/liste.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/proSante/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/toutVisite.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/visites/visite.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/welcome.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/laravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/routes/web.php" afterDir="false" />
-    </list>
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="maj" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +12,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/laravel/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -32,18 +24,16 @@
     &quot;state&quot;: &quot;OPEN&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="b841830b-f633-4109-a895-7cf0038869a9" />
-        <option name="url" value="https://github.com/florianbsc/gsb.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/florianbsc/gsb.git&quot;,
+    &quot;accountId&quot;: &quot;a1512b58-9f1b-4b5d-8f75-da22f0633960&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.3.6/bin/php">
     <include_path>
       <path value="$PROJECT_DIR$/laravel/vendor/phar-io/manifest" />
       <path value="$PROJECT_DIR$/laravel/vendor/myclabs/deep-copy" />
@@ -159,6 +149,9 @@
       <path value="$PROJECT_DIR$/laravel/vendor/phar-io/version" />
     </include_path>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ZJFppRtP1gTeGP4NpG4bD5H588" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -170,7 +163,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/gsb/laravel/resources/images&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Applications/MAMP/htdocs/gsb&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -185,9 +179,24 @@
       <recent name="C:\xampp\htdocs\gsb\laravel\resources\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/laravel" />
       <recent name="C:\xampp\htdocs\gsb\laravel\public" />
       <recent name="C:\xampp\htdocs\gsb\laravel\resources\views\visites" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner configuration_file="$PROJECT_DIR$/laravel/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PS-241.14494.237" />
+        <option value="bundled-php-predefined-ba97393d7c68-8f0632a2a215-com.jetbrains.php.sharedIndexes-PS-241.14494.237" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -223,6 +232,13 @@
       <workItem from="1705241482305" duration="1375000" />
       <workItem from="1705394914482" duration="1157000" />
       <workItem from="1705615765794" duration="2777000" />
+      <workItem from="1714660811803" duration="2693000" />
+      <workItem from="1714743544175" duration="660000" />
+      <workItem from="1714849826574" duration="8000" />
+      <workItem from="1714849842402" duration="711000" />
+      <workItem from="1716317391789" duration="1513000" />
+      <workItem from="1716328364376" duration="599000" />
+      <workItem from="1716329562220" duration="749000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>

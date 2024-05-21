@@ -73,7 +73,7 @@
             </button>
             <!-- Brand -->
             <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="{{route('accueil')}}">
-                <img src="{{asset('images/gsb.png')}}" alt="Logo GSB">
+                <img src="{{asset('images/logo-gsb.png')}}" alt="Logo de GSB">
             </a>
             <!-- User menu (mobile) -->
             <div class="navbar-user d-lg-none">
