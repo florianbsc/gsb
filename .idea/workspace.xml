@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="maj" />
+    <list default="true" id="a54bddfe-f46e-4a72-8d50-fc6beda10a77" name="Changes" comment="maj">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/laravel/resources/views/layout/app.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,7 +241,9 @@
       <workItem from="1714849842402" duration="711000" />
       <workItem from="1716317391789" duration="1513000" />
       <workItem from="1716328364376" duration="599000" />
-      <workItem from="1716329562220" duration="749000" />
+      <workItem from="1716329562220" duration="3756000" />
+      <workItem from="1716365032165" duration="619000" />
+      <workItem from="1716386375999" duration="599000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1702155434927</created>

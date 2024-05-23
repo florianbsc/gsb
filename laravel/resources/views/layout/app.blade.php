@@ -155,7 +155,7 @@
                             </a>
                         </li>
                     @endif
-                    @if(session('fonction') !== 'demarcheur')
+                    @if(session('fonction') == 'responsable')
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('create_demarcheur')}}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
